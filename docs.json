@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "theme": "maple",
+  "name": "Genseo",
   "colors": {
-    "primary": "#16A34A",
+    "primary": "#6A39EF",
     "light": "#07C983",
-    "dark": "#15803D"
+    "dark": "#6A39EF"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -14,55 +14,151 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
+            "icon": "rocket",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              {
+                "title": "How It Works",
+                "icon": "circle-info",
+                "page": "getting-started/how-it-works"
+              },
+              {
+                "title": "Quick Start",
+                "icon": "bolt",
+                "page": "getting-started/quick-start"
+              }
             ]
           },
           {
-            "group": "Customization",
+            "group": "Integrations",
+            "icon": "plug",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              {
+                "title": "Webflow Integration",
+                "icon": "webflow",
+                "page": "integrations/webflow"
+              },
+              {
+                "title": "Shopify Integration",
+                "icon": "shopify",
+                "page": "integrations/shopify"
+              },
+              {
+                "title": "Webhooks Integration",
+                "icon": "webhook",
+                "page": "integrations/webhooks"
+              }
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Keywords",
+            "icon": "magnifying-glass",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              {
+                "title": "Keyword Basics",
+                "icon": "book",
+                "page": "keywords/keyword-basics"
+              },
+              {
+                "title": "Find Keywords",
+                "icon": "search",
+                "page": "keywords/find-keywords"
+              },
+              {
+                "title": "Content Planning",
+                "icon": "calendar-days",
+                "page": "keywords/content-planning"
+              }
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Articles",
+            "icon": "file-lines",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
+              {
+                "title": "Generate Articles",
+                "icon": "wand-magic-sparkles",
+                "page": "articles/generate-articles"
+              },
+              {
+                "title": "Edit Articles",
+                "icon": "pen-to-square",
+                "page": "articles/edit-articles"
+              },
+              {
+                "title": "Publish Articles",
+                "icon": "paper-plane",
+                "page": "articles/publish-articles"
+              }
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Calendar",
+            "icon": "calendar",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              {
+                "title": "Content Calendar",
+                "icon": "calendar-check",
+                "page": "calendar/content-calendar"
+              },
+              {
+                "title": "Auto Publish",
+                "icon": "clock",
+                "page": "calendar/auto-publish"
+              }
+            ]
+          },
+          {
+            "group": "Technical SEO",
+            "icon": "gear",
+            "pages": [
+              {
+                "title": "Technical SEO Basics",
+                "icon": "screwdriver-wrench",
+                "page": "technical-seo/technical-seo-basics"
+              },
+              {
+                "title": "On-Page SEO",
+                "icon": "file-code",
+                "page": "technical-seo/on-page-seo"
+              },
+              {
+                "title": "Schema Markup",
+                "icon": "code",
+                "page": "technical-seo/schema-markup"
+              }
+            ]
+          },
+          {
+            "group": "Billing & Support",
+            "icon": "credit-card",
+            "pages": [
+              {
+                "title": "Plans, Limits & Upgrades",
+                "icon": "chart-line",
+                "page": "billing-support/plans-limits-upgrades"
+              },
+              {
+                "title": "Manage Billing & Invoices",
+                "icon": "receipt",
+                "page": "billing-support/manage-billing-invoices"
+              },
+              {
+                "title": "Cancel Subscription",
+                "icon": "xmark-circle",
+                "page": "billing-support/cancel-subscription"
+              },
+              {
+                "title": "Affiliate Program",
+                "icon": "user-group",
+                "page": "billing-support/affiliate-program"
+              },
+              {
+                "title": "Contact Support",
+                "icon": "headset",
+                "page": "billing-support/contact-support"
+              }
             ]
           }
         ]
@@ -70,16 +166,6 @@
     ],
     "global": {
       "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
       ]
     }
   },
@@ -90,14 +176,14 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Login",
+        "href": "https://app.genseo.co/login"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Sign up",
+      "href": "https://app.genseo.co/sign-up"
     }
   },
   "contextual": {
@@ -114,9 +200,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/genseo",
+      "github": "https://github.com/genseo",
+      "linkedin": "https://linkedin.com/company/genseo"
     }
   }
 }

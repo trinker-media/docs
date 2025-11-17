@@ -1,0 +1,158 @@
+---
+title: "Webflow Integration"
+description: "Connect Genseo to Webflow and publish articles directly to your CMS"
+---
+
+## Overview
+
+The Webflow integration allows you to publish articles directly to your Webflow CMS collection without manual copy-paste. This guide covers setup, publishing workflows, and troubleshooting.
+
+## Creating a Webflow API Token
+
+Before connecting Genseo to Webflow, you need to create an API token.
+
+### Step 1: Access Webflow Account Settings
+
+1. Log in to your Webflow account
+2. Click your profile icon in the top right
+3. Select **Account Settings**
+4. Navigate to the **Applications** tab
+
+### Step 2: Generate API Token
+
+1. Scroll to the **API Access** section
+2. Click **Create New Token**
+3. Give your token a name (e.g., "Genseo Integration")
+4. Copy the token immediately—you won't be able to see it again
+
+<Warning>
+Keep your API token secure. Never share it publicly or commit it to version control.
+</Warning>
+
+## Connecting Webflow in Genseo
+
+### Step 1: Add Integration
+
+1. In Genseo, go to **Settings** → **Integrations**
+2. Click **Connect Webflow**
+3. Paste your API token
+4. Click **Connect**
+
+### Step 2: Select Your Site
+
+1. Choose your Webflow site from the dropdown
+2. Click **Next**
+
+### Step 3: Map CMS Fields
+
+Genseo needs to know which CMS fields to populate. Map the following:
+
+- **Title field**: Where the article title goes
+- **Content field**: Where the article body/content goes
+- **Slug field**: The URL slug (optional)
+- **Publish date field**: When the article was published (optional)
+- **Featured image field**: Article featured image (optional)
+- **Author field**: Article author (optional)
+
+<Tip>
+If you don't have all these fields, create them in your Webflow CMS collection first. Only the title and content fields are required.
+</Tip>
+
+## Publishing Articles to Webflow
+
+### Immediate Publishing
+
+1. Generate or open an article in Genseo
+2. Click **Publish**
+3. Select **Webflow** as the destination
+4. Review the preview
+5. Click **Confirm**
+
+The article will be published to your Webflow CMS immediately.
+
+### Scheduled Publishing
+
+1. Generate or open an article
+2. Click **Schedule**
+3. Select your publish date and time
+4. Choose **Webflow** as the destination
+5. Click **Schedule**
+
+The article will be published automatically at the scheduled time.
+
+## Updating Articles
+
+When you update an article in Genseo:
+
+1. Make your edits in the Genseo editor
+2. Click **Update**
+3. Select **Update in Webflow**
+4. Confirm the update
+
+<Tip>
+Genseo maintains a connection between articles and Webflow items. Updates will overwrite the existing Webflow item.
+</Tip>
+
+## Common Issues and Solutions
+
+### "Invalid API Token" Error
+
+**Problem**: Genseo can't authenticate with Webflow.
+
+**Solution**:
+- Verify your API token is correct
+- Generate a new token in Webflow if needed
+- Ensure you copied the entire token (no extra spaces)
+
+### "Site Not Found" Error
+
+**Problem**: Genseo can't find your Webflow site.
+
+**Solution**:
+- Verify you have access to the site in your Webflow account
+- Check that the API token has the correct permissions
+- Try disconnecting and reconnecting the integration
+
+### "CMS Field Mapping Failed" Error
+
+**Problem**: Genseo can't map fields to your CMS collection.
+
+**Solution**:
+- Ensure all required fields exist in your CMS collection
+- Check that field types match (e.g., Rich Text for content)
+- Verify field names are spelled correctly
+
+### Articles Published But Not Visible
+
+**Problem**: Articles are in Webflow but not showing on your site.
+
+**Solution**:
+- Check that your CMS collection is connected to a Collection Page
+- Verify the article is set to "Published" in Webflow
+- Ensure your Collection Page template is configured correctly
+
+### Slug Conflicts
+
+**Problem**: Multiple articles try to use the same URL slug.
+
+**Solution**:
+- Genseo automatically handles slug conflicts by adding numbers
+- Manually edit slugs in Webflow if needed
+- Consider using unique identifiers in your slug pattern
+
+## Best Practices
+
+- **Test first**: Publish a test article before scheduling multiple articles
+- **Backup content**: Keep copies of important articles outside Webflow
+- **Monitor publishing**: Check your Webflow CMS after publishing to ensure articles appear correctly
+- **Update mappings**: If you change your CMS structure, update field mappings in Genseo
+
+## Next Steps
+
+- Learn about [publishing workflows](/articles/publish-articles)
+- Set up [auto-publishing](/calendar/auto-publish) for hands-off content creation
+- Explore [webhook integrations](/integrations/webhooks) for advanced automation
+
+
+
+

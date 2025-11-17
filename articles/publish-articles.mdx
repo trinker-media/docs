@@ -1,0 +1,228 @@
+---
+title: "Publish Articles"
+description: "Publishing workflows for Webflow and Shopify, republishing updates, and checking live previews"
+---
+
+## Overview
+
+This guide covers publishing workflows for Webflow and Shopify, how to republish updated articles, how to check live previews, and how to avoid common issues like slug conflicts.
+
+## Publishing Workflows
+
+### Immediate Publishing
+
+Publish articles immediately to your connected integration.
+
+#### For Webflow
+
+1. Open the article you want to publish
+2. Click **Publish**
+3. Select **Webflow** as the destination
+4. Review the preview
+5. Click **Confirm**
+
+The article will be published to your Webflow CMS immediately.
+
+#### For Shopify
+
+1. Open the article you want to publish
+2. Click **Publish**
+3. Select **Shopify** as the destination
+4. Review the preview
+5. Click **Confirm**
+
+The article will be published to your Shopify blog immediately.
+
+### Scheduled Publishing
+
+Schedule articles for future publication.
+
+1. Open the article you want to schedule
+2. Click **Schedule**
+3. Select your publish date and time
+4. Choose your destination (Webflow or Shopify)
+5. Click **Schedule**
+
+The article will be published automatically at the scheduled time.
+
+<Tip>
+Use scheduled publishing to maintain a consistent content calendar and publish during optimal times for your audience.
+</Tip>
+
+## Republishing Updates
+
+When you update an article in Genseo, you need to republish it to update the live version.
+
+### Updating Published Articles
+
+1. Make your edits in the Genseo editor
+2. Click **Update**
+3. Select **Update in [Integration]** (Webflow or Shopify)
+4. Review the changes
+5. Click **Confirm**
+
+The article will be updated in your integration, overwriting the previous version.
+
+<Tip>
+Genseo maintains a connection between articles and published content. Updates will automatically update the correct item in your integration.
+</Tip>
+
+### Handling Major Updates
+
+For major updates that change the article significantly:
+
+1. **Review impact**: Consider if the update changes the article's core message
+2. **Check SEO**: Ensure SEO elements (title, slug, keywords) are still appropriate
+3. **Update metadata**: Update meta descriptions and other metadata if needed
+4. **Test links**: Verify internal and external links still work
+5. **Republish**: Republish the updated article
+
+## Checking Live Previews
+
+Before publishing, review how your article will appear on your site.
+
+### Preview in Genseo
+
+Genseo provides a preview of how your article will look:
+
+1. Click **Preview** before publishing
+2. Review the article structure and formatting
+3. Check that images and links display correctly
+4. Verify SEO elements are properly formatted
+
+### Preview in Integration
+
+After publishing, check the live version:
+
+#### For Webflow
+
+1. Go to your Webflow CMS
+2. Find the published article
+3. Click **Preview** to see how it appears on your site
+4. Check the live URL to see the public version
+
+#### For Shopify
+
+1. Go to your Shopify admin
+2. Navigate to **Online Store** → **Blog posts**
+3. Find the published article
+4. Click **View** to see how it appears on your storefront
+
+### Common Preview Issues
+
+**Images not displaying**:
+- Check that image URLs are correct
+- Verify images are accessible
+- Ensure images meet integration requirements
+
+**Formatting issues**:
+- Review HTML formatting in the integration
+- Check that your theme supports the formatting
+- Adjust formatting in the integration if needed
+
+**Links not working**:
+- Verify link URLs are correct
+- Check that links use proper protocols (http:// or https://)
+- Test links in the live version
+
+## Avoiding Slug Conflicts
+
+URL slugs must be unique. Conflicts occur when multiple articles try to use the same slug.
+
+### How Genseo Handles Slugs
+
+Genseo automatically generates slugs from article titles:
+
+1. **Convert to lowercase**: Title is converted to lowercase
+2. **Replace spaces**: Spaces are replaced with hyphens
+3. **Remove special characters**: Special characters are removed or converted
+4. **Handle conflicts**: If a slug exists, Genseo adds a number (e.g., `article-2`)
+
+### Preventing Slug Conflicts
+
+- **Use unique titles**: Ensure article titles are unique
+- **Check existing slugs**: Review existing articles before creating new ones
+- **Customize slugs**: Manually set slugs when needed to avoid conflicts
+- **Use descriptive slugs**: Make slugs descriptive and keyword-rich
+
+### Resolving Slug Conflicts
+
+If you encounter a slug conflict:
+
+1. **Edit the slug**: Manually edit the slug in Genseo before publishing
+2. **Update in integration**: If already published, update the slug in your integration
+3. **Use redirects**: Set up redirects if you change a published article's slug
+
+## Common Publishing Issues
+
+### Publishing Fails
+
+**Problem**: Article fails to publish to your integration.
+
+**Solution**:
+- Verify your integration is properly connected
+- Check that you have publish permissions in your integration
+- Ensure required fields are mapped correctly
+- Try publishing again after a few minutes
+
+### Article Not Visible
+
+**Problem**: Article is published but not visible on your site.
+
+**Solution**:
+- Check that the article is set to "Published" in your integration
+- Verify your integration's publishing settings
+- Ensure your site theme is configured to display the content
+- Check for any caching issues
+
+### Formatting Lost
+
+**Problem**: Article formatting is lost when published.
+
+**Solution**:
+- Review HTML formatting in your integration
+- Check that your theme supports the formatting used
+- Adjust formatting in your integration's editor if needed
+- Verify that Genseo is sending properly formatted HTML
+
+### Images Not Uploading
+
+**Problem**: Images aren't uploading to your integration.
+
+**Solution**:
+- Check that images meet file size and format requirements
+- Verify image URLs are accessible
+- Ensure you have sufficient storage in your integration
+- Try uploading images manually if needed
+
+## Best Practices
+
+### Before Publishing
+
+- **Review content**: Always review articles before publishing
+- **Check preview**: Use preview to see how articles will appear
+- **Verify SEO**: Ensure SEO elements are properly configured
+- **Test links**: Verify all links work correctly
+
+### During Publishing
+
+- **Choose the right time**: Schedule publishing for optimal times
+- **Monitor publishing**: Watch for any errors during publishing
+- **Check immediately**: Verify articles appear correctly after publishing
+
+### After Publishing
+
+- **Review live version**: Check how articles appear on your live site
+- **Test functionality**: Verify links, images, and formatting work
+- **Monitor performance**: Track how articles perform over time
+- **Update as needed**: Make updates based on performance and feedback
+
+## Next Steps
+
+- Learn about [content calendar](/calendar/content-calendar) to organize your publishing schedule
+- Explore [auto-publish](/calendar/auto-publish) to automate your publishing workflow
+- Review [Webflow integration](/integrations/webflow) or [Shopify integration](/integrations/shopify) for integration-specific guidance
+
+
+
+
