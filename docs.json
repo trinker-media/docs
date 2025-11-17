@@ -4,324 +4,76 @@
   "name": "Genseo",
   "colors": {
     "primary": "#6A39EF",
-    "light": "#07C983",
+    "light": "#7A4EF1",
     "dark": "#6A39EF"
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "sidebar": [
+    "pages": [
       {
-        "group": "Getting Started",
-        "icon": "rocket",
+        "group": "Get Started",
         "pages": [
           "index",
-          {
-            "title": "How It Works",
-            "icon": "circle-info",
-            "page": "getting-started/how-it-works"
-          },
-          {
-            "title": "Quick Start",
-            "icon": "bolt",
-            "page": "getting-started/quick-start"
-          }
+          "getting-started/how-it-works",
+          "getting-started/quick-start"
         ]
       },
       {
         "group": "Integrations",
-        "icon": "plug",
         "pages": [
-          {
-            "title": "Webflow Integration",
-            "icon": "webflow",
-            "page": "integrations/webflow"
-          },
-          {
-            "title": "Shopify Integration",
-            "icon": "shopify",
-            "page": "integrations/shopify"
-          },
-          {
-            "title": "Webhooks Integration",
-            "icon": "webhook",
-            "page": "integrations/webhooks"
-          }
+          "integrations/webflow",
+          "integrations/shopify",
+          "integrations/webhooks"
         ]
       },
       {
-        "group": "Keywords",
-        "icon": "magnifying-glass",
+        "group": "Content Creation",
         "pages": [
-          {
-            "title": "Keyword Basics",
-            "icon": "book",
-            "page": "keywords/keyword-basics"
-          },
-          {
-            "title": "Find Keywords",
-            "icon": "search",
-            "page": "keywords/find-keywords"
-          },
-          {
-            "title": "Content Planning",
-            "icon": "calendar-days",
-            "page": "keywords/content-planning"
-          }
+          "keywords/keyword-basics",
+          "keywords/find-keywords",
+          "articles/generate-articles",
+          "articles/edit-articles",
+          "articles/publish-articles"
         ]
       },
       {
-        "group": "Articles",
-        "icon": "file-lines",
+        "group": "Content Planning",
         "pages": [
-          {
-            "title": "Generate Articles",
-            "icon": "wand-magic-sparkles",
-            "page": "articles/generate-articles"
-          },
-          {
-            "title": "Edit Articles",
-            "icon": "pen-to-square",
-            "page": "articles/edit-articles"
-          },
-          {
-            "title": "Publish Articles",
-            "icon": "paper-plane",
-            "page": "articles/publish-articles"
-          }
+          "keywords/content-planning",
+          "calendar/content-calendar",
+          "calendar/auto-publish"
         ]
       },
       {
-        "group": "Calendar",
-        "icon": "calendar",
+        "group": "SEO Optimization",
         "pages": [
-          {
-            "title": "Content Calendar",
-            "icon": "calendar-check",
-            "page": "calendar/content-calendar"
-          },
-          {
-            "title": "Auto Publish",
-            "icon": "clock",
-            "page": "calendar/auto-publish"
-          }
-        ]
-      },
-      {
-        "group": "Technical SEO",
-        "icon": "gear",
-        "pages": [
-          {
-            "title": "Technical SEO Basics",
-            "icon": "screwdriver-wrench",
-            "page": "technical-seo/technical-seo-basics"
-          },
-          {
-            "title": "On-Page SEO",
-            "icon": "file-code",
-            "page": "technical-seo/on-page-seo"
-          },
-          {
-            "title": "Schema Markup",
-            "icon": "code",
-            "page": "technical-seo/schema-markup"
-          }
+          "technical-seo/technical-seo-basics",
+          "technical-seo/on-page-seo",
+          "technical-seo/schema-markup"
         ]
       },
       {
         "group": "Billing & Support",
-        "icon": "credit-card",
         "pages": [
-          {
-            "title": "Plans, Limits & Upgrades",
-            "icon": "chart-line",
-            "page": "billing-support/plans-limits-upgrades"
-          },
-          {
-            "title": "Manage Billing & Invoices",
-            "icon": "receipt",
-            "page": "billing-support/manage-billing-invoices"
-          },
-          {
-            "title": "Cancel Subscription",
-            "icon": "xmark-circle",
-            "page": "billing-support/cancel-subscription"
-          },
-          {
-            "title": "Affiliate Program",
-            "icon": "user-group",
-            "page": "billing-support/affiliate-program"
-          },
-          {
-            "title": "Contact Support",
-            "icon": "headset",
-            "page": "billing-support/contact-support"
-          }
+          "billing-support/plans-limits-upgrades",
+          "billing-support/manage-billing-invoices",
+          "billing-support/contact-support"
         ]
-      }
-    ],
-    "tabs": [
+      },
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "icon": "rocket",
-            "pages": [
-              "index",
-              {
-                "title": "How It Works",
-                "icon": "circle-info",
-                "page": "getting-started/how-it-works"
-              },
-              {
-                "title": "Quick Start",
-                "icon": "bolt",
-                "page": "getting-started/quick-start"
-              }
-            ]
-          },
-          {
-            "group": "Integrations",
-            "icon": "plug",
-            "pages": [
-              {
-                "title": "Webflow Integration",
-                "icon": "webflow",
-                "page": "integrations/webflow"
-              },
-              {
-                "title": "Shopify Integration",
-                "icon": "shopify",
-                "page": "integrations/shopify"
-              },
-              {
-                "title": "Webhooks Integration",
-                "icon": "webhook",
-                "page": "integrations/webhooks"
-              }
-            ]
-          },
-          {
-            "group": "Keywords",
-            "icon": "magnifying-glass",
-            "pages": [
-              {
-                "title": "Keyword Basics",
-                "icon": "book",
-                "page": "keywords/keyword-basics"
-              },
-              {
-                "title": "Find Keywords",
-                "icon": "search",
-                "page": "keywords/find-keywords"
-              },
-              {
-                "title": "Content Planning",
-                "icon": "calendar-days",
-                "page": "keywords/content-planning"
-              }
-            ]
-          },
-          {
-            "group": "Articles",
-            "icon": "file-lines",
-            "pages": [
-              {
-                "title": "Generate Articles",
-                "icon": "wand-magic-sparkles",
-                "page": "articles/generate-articles"
-              },
-              {
-                "title": "Edit Articles",
-                "icon": "pen-to-square",
-                "page": "articles/edit-articles"
-              },
-              {
-                "title": "Publish Articles",
-                "icon": "paper-plane",
-                "page": "articles/publish-articles"
-              }
-            ]
-          },
-          {
-            "group": "Calendar",
-            "icon": "calendar",
-            "pages": [
-              {
-                "title": "Content Calendar",
-                "icon": "calendar-check",
-                "page": "calendar/content-calendar"
-              },
-              {
-                "title": "Auto Publish",
-                "icon": "clock",
-                "page": "calendar/auto-publish"
-              }
-            ]
-          },
-          {
-            "group": "Technical SEO",
-            "icon": "gear",
-            "pages": [
-              {
-                "title": "Technical SEO Basics",
-                "icon": "screwdriver-wrench",
-                "page": "technical-seo/technical-seo-basics"
-              },
-              {
-                "title": "On-Page SEO",
-                "icon": "file-code",
-                "page": "technical-seo/on-page-seo"
-              },
-              {
-                "title": "Schema Markup",
-                "icon": "code",
-                "page": "technical-seo/schema-markup"
-              }
-            ]
-          },
-          {
-            "group": "Billing & Support",
-            "icon": "credit-card",
-            "pages": [
-              {
-                "title": "Plans, Limits & Upgrades",
-                "icon": "chart-line",
-                "page": "billing-support/plans-limits-upgrades"
-              },
-              {
-                "title": "Manage Billing & Invoices",
-                "icon": "receipt",
-                "page": "billing-support/manage-billing-invoices"
-              },
-              {
-                "title": "Cancel Subscription",
-                "icon": "xmark-circle",
-                "page": "billing-support/cancel-subscription"
-              },
-              {
-                "title": "Affiliate Program",
-                "icon": "user-group",
-                "page": "billing-support/affiliate-program"
-              },
-              {
-                "title": "Contact Support",
-                "icon": "headset",
-                "page": "billing-support/contact-support"
-              }
-            ]
-          }
+        "group": "Need Help?",
+        "pages": [
+          "billing-support/contact-support"
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
+  },
+  "styling": {
+    "customCSS": "/styles/globals.css"
   },
   "navbar": {
     "links": [
