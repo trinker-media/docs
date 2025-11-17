@@ -9,6 +9,156 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
+    "sidebar": [
+      {
+        "group": "Getting Started",
+        "icon": "rocket",
+        "pages": [
+          "index",
+          {
+            "title": "How It Works",
+            "icon": "circle-info",
+            "page": "getting-started/how-it-works"
+          },
+          {
+            "title": "Quick Start",
+            "icon": "bolt",
+            "page": "getting-started/quick-start"
+          }
+        ]
+      },
+      {
+        "group": "Integrations",
+        "icon": "plug",
+        "pages": [
+          {
+            "title": "Webflow Integration",
+            "icon": "webflow",
+            "page": "integrations/webflow"
+          },
+          {
+            "title": "Shopify Integration",
+            "icon": "shopify",
+            "page": "integrations/shopify"
+          },
+          {
+            "title": "Webhooks Integration",
+            "icon": "webhook",
+            "page": "integrations/webhooks"
+          }
+        ]
+      },
+      {
+        "group": "Keywords",
+        "icon": "magnifying-glass",
+        "pages": [
+          {
+            "title": "Keyword Basics",
+            "icon": "book",
+            "page": "keywords/keyword-basics"
+          },
+          {
+            "title": "Find Keywords",
+            "icon": "search",
+            "page": "keywords/find-keywords"
+          },
+          {
+            "title": "Content Planning",
+            "icon": "calendar-days",
+            "page": "keywords/content-planning"
+          }
+        ]
+      },
+      {
+        "group": "Articles",
+        "icon": "file-lines",
+        "pages": [
+          {
+            "title": "Generate Articles",
+            "icon": "wand-magic-sparkles",
+            "page": "articles/generate-articles"
+          },
+          {
+            "title": "Edit Articles",
+            "icon": "pen-to-square",
+            "page": "articles/edit-articles"
+          },
+          {
+            "title": "Publish Articles",
+            "icon": "paper-plane",
+            "page": "articles/publish-articles"
+          }
+        ]
+      },
+      {
+        "group": "Calendar",
+        "icon": "calendar",
+        "pages": [
+          {
+            "title": "Content Calendar",
+            "icon": "calendar-check",
+            "page": "calendar/content-calendar"
+          },
+          {
+            "title": "Auto Publish",
+            "icon": "clock",
+            "page": "calendar/auto-publish"
+          }
+        ]
+      },
+      {
+        "group": "Technical SEO",
+        "icon": "gear",
+        "pages": [
+          {
+            "title": "Technical SEO Basics",
+            "icon": "screwdriver-wrench",
+            "page": "technical-seo/technical-seo-basics"
+          },
+          {
+            "title": "On-Page SEO",
+            "icon": "file-code",
+            "page": "technical-seo/on-page-seo"
+          },
+          {
+            "title": "Schema Markup",
+            "icon": "code",
+            "page": "technical-seo/schema-markup"
+          }
+        ]
+      },
+      {
+        "group": "Billing & Support",
+        "icon": "credit-card",
+        "pages": [
+          {
+            "title": "Plans, Limits & Upgrades",
+            "icon": "chart-line",
+            "page": "billing-support/plans-limits-upgrades"
+          },
+          {
+            "title": "Manage Billing & Invoices",
+            "icon": "receipt",
+            "page": "billing-support/manage-billing-invoices"
+          },
+          {
+            "title": "Cancel Subscription",
+            "icon": "xmark-circle",
+            "page": "billing-support/cancel-subscription"
+          },
+          {
+            "title": "Affiliate Program",
+            "icon": "user-group",
+            "page": "billing-support/affiliate-program"
+          },
+          {
+            "title": "Contact Support",
+            "icon": "headset",
+            "page": "billing-support/contact-support"
+          }
+        ]
+      }
+    ],
     "tabs": [
       {
         "tab": "Guides",
