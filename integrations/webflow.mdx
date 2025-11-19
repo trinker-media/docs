@@ -7,56 +7,31 @@ description: "Connect Genseo to Webflow and publish articles directly to your CM
 
 The Webflow integration allows you to publish articles directly to your Webflow CMS collection without manual copy-paste. This guide covers setup, publishing workflows, and troubleshooting.
 
-## Creating a Webflow API Token
-
-Before connecting Genseo to Webflow, you need to create an API token.
-
-### Step 1: Access Webflow Account Settings
-
-1. Log in to your Webflow account
-2. Click your profile icon in the top right
-3. Select **Account Settings**
-4. Navigate to the **Applications** tab
-
-### Step 2: Generate API Token
-
-1. Scroll to the **API Access** section
-2. Click **Create New Token**
-3. Give your token a name (e.g., "Genseo Integration")
-4. Copy the token immediately—you won't be able to see it again
-
-<Warning>
-Keep your API token secure. Never share it publicly or commit it to version control.
-</Warning>
-
 ## Connecting Webflow in Genseo
 
-### Step 1: Add Integration
+### Step 1: Start the Connection
 
-1. In Genseo, go to **Settings** → **Integrations**
-2. Click **Connect Webflow**
-3. Paste your API token
-4. Click **Connect**
+1. In the dashboard sidebar, click **Integrations**
+2. Find **Webflow** in the list and click **Connect**
 
-### Step 2: Select Your Site
+This opens the Webflow OAuth pop-up window. If the window is blocked by your browser, allow pop-ups for Genseo.
 
-1. Choose your Webflow site from the dropdown
-2. Click **Next**
+### Step 2: Authorize Webflow
 
-### Step 3: Map CMS Fields
+1. Sign in to Webflow if you are not already authenticated
+2. Wait a few seconds while Webflow loads your workspaces
+3. Select the Webflow site (project) you want to connect
+4. Confirm the requested permissions
 
-Genseo needs to know which CMS fields to populate. Map the following:
+You will be redirected back to Genseo once the authorization succeeds.
 
-- **Title field**: Where the article title goes
-- **Content field**: Where the article body/content goes
-- **Slug field**: The URL slug (optional)
-- **Publish date field**: When the article was published (optional)
-- **Featured image field**: Article featured image (optional)
-- **Author field**: Article author (optional)
+### Step 3: Pick a Collection and Map Fields
 
-<Tip>
-If you don't have all these fields, create them in your Webflow CMS collection first. Only the title and content fields are required.
-</Tip>
+After the redirect, Genseo shows a pop-up with your collections.
+
+1. Choose the CMS collection that should receive newly published items
+2. Map your fields
+3. Click **Save** to persist the mapping
 
 ## Publishing Articles to Webflow
 
@@ -95,14 +70,14 @@ Genseo maintains a connection between articles and Webflow items. Updates will o
 
 ## Common Issues and Solutions
 
-### "Invalid API Token" Error
+### Authorization Failed
 
-**Problem**: Genseo can't authenticate with Webflow.
+**Problem**: The Webflow OAuth window closes with an error or never returns to Genseo.
 
 **Solution**:
-- Verify your API token is correct
-- Generate a new token in Webflow if needed
-- Ensure you copied the entire token (no extra spaces)
+- Make sure you selected at least one site in the OAuth dialog
+- Confirm that your Webflow user has access to the project you tried to connect
+- Retry the connection and keep the OAuth pop-up open until it redirects back to Genseo
 
 ### "Site Not Found" Error
 

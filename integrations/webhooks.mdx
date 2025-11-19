@@ -5,68 +5,25 @@ description: "Connect Genseo to external services using webhooks for advanced au
 
 ## Overview
 
-Webhooks allow you to connect Genseo to external services like Slack, Notion, or custom dashboards. When events occur in Genseo (like article publication), a webhook sends data to your configured endpoint.
-
-## Available Webhook Events
-
-Genseo supports the following webhook events:
-
-### Article Events
-
-- `article.generated`: Fired when an article is generated
-- `article.published`: Fired when an article is published
-- `article.updated`: Fired when an article is updated
-- `article.scheduled`: Fired when an article is scheduled
-- `article.deleted`: Fired when an article is deleted
-
-### Keyword Events
-
-- `keyword.added`: Fired when a keyword is added
-- `keyword.updated`: Fired when a keyword is updated
-- `keyword.deleted`: Fired when a keyword is deleted
+Webhooks allow you to connect Genseo to external services like Slack, Notion, or custom dashboards. At the moment, Genseo emits exactly one webhook per article—the moment the article is actually published (including scheduled auto-publishes). Use that single payload to trigger downstream automation.
 
 ## Setting Up Webhooks
 
-### Step 1: Create Webhook Endpoint
+### Step 1: Create the Connection in Genseo
 
-1. Go to **Settings** → **Webhooks**
-2. Click **Add Webhook**
-3. Enter your webhook URL (the endpoint that will receive events)
-4. Select which events you want to subscribe to
-5. Click **Save**
+1. Navigate to **Settings** → **Integrations**
+2. Click the **Webhooks** tile and then **Connect**
+3. A configuration window opens where you enter:
+   - **Webhook URL**: The HTTPS endpoint that will receive events
+   - **Authentication**: Choose between `NONE`, `BEARER TOKEN`, `API KEY`, `BASIC AUTH`, or `CUSTOM HEADER`
+   - **Headers / Secrets**: Provide the necessary credentials based on your chosen auth type
+4. Select the event types you want to subscribe to
+5. (Optional) Click **Send test** to deliver a sample payload to your endpoint and confirm it responds correctly
+6. Click **Save** to store the configuration
 
 ### Step 2: Verify Webhook
 
-Genseo will send a verification request to your endpoint. Your endpoint must respond with the challenge token to verify the webhook.
-
-## Webhook Payload Structure
-
-All webhook payloads follow this structure:
-
-```json
-{
-  "event": "article.published",
-  "timestamp": "2024-01-15T10:30:00Z",
-  "data": {
-    "article": {
-      "id": "article_123",
-      "title": "Example Article",
-      "slug": "example-article",
-      "content": "...",
-      "status": "published",
-      "published_at": "2024-01-15T10:30:00Z"
-    }
-  },
-  "signature": "sha256=..."
-}
-```
-
-### Event Types
-
-- `event`: The type of event that occurred
-- `timestamp`: When the event occurred (ISO 8601 format)
-- `data`: Event-specific data
-- `signature`: HMAC signature for verification (see Authentication)
+When the configuration is saved, Genseo sends a verification request to your endpoint. Your endpoint must respond with the provided challenge token to complete the setup.
 
 ## Authentication
 
@@ -77,113 +34,6 @@ Genseo signs all webhook payloads with an HMAC-SHA256 signature. Verify the sign
 1. Get your webhook secret from Genseo settings
 2. Create an HMAC-SHA256 hash of the raw request body using your secret
 3. Compare the hash with the signature in the `signature` header
-
-### Example (Node.js)
-
-```javascript
-const crypto = require('crypto');
-
-function verifyWebhookSignature(body, signature, secret) {
-  const hash = crypto
-    .createHmac('sha256', secret)
-    .update(JSON.stringify(body))
-    .digest('hex');
-  
-  return `sha256=${hash}` === signature;
-}
-```
-
-### Example (Python)
-
-```python
-import hmac
-import hashlib
-import json
-
-def verify_webhook_signature(body, signature, secret):
-    hash = hmac.new(
-        secret.encode('utf-8'),
-        json.dumps(body).encode('utf-8'),
-        hashlib.sha256
-    ).hexdigest()
-    
-    return f"sha256={hash}" == signature
-```
-
-## Example Automations
-
-### Slack Notification
-
-Send a Slack message when an article is published:
-
-```javascript
-// Webhook endpoint handler
-app.post('/webhook/genseo', async (req, res) => {
-  const { event, data } = req.body;
-  
-  if (event === 'article.published') {
-    await slack.sendMessage({
-      channel: '#content',
-      text: `New article published: ${data.article.title}`,
-      blocks: [
-        {
-          type: 'section',
-          text: {
-            type: 'mrkdwn',
-            text: `*${data.article.title}*\n${data.article.slug}`
-          }
-        }
-      ]
-    });
-  }
-  
-  res.status(200).send('OK');
-});
-```
-
-### Notion Database Sync
-
-Sync published articles to a Notion database:
-
-```javascript
-app.post('/webhook/genseo', async (req, res) => {
-  const { event, data } = req.body;
-  
-  if (event === 'article.published') {
-    await notion.pages.create({
-      parent: { database_id: process.env.NOTION_DB_ID },
-      properties: {
-        'Title': { title: [{ text: { content: data.article.title } }] },
-        'Slug': { rich_text: [{ text: { content: data.article.slug } }] },
-        'Published': { date: { start: data.article.published_at } }
-      }
-    });
-  }
-  
-  res.status(200).send('OK');
-});
-```
-
-### Internal Dashboard Update
-
-Update an internal dashboard when articles are published:
-
-```javascript
-app.post('/webhook/genseo', async (req, res) => {
-  const { event, data } = req.body;
-  
-  if (event === 'article.published') {
-    await db.articles.create({
-      genseo_id: data.article.id,
-      title: data.article.title,
-      slug: data.article.slug,
-      published_at: new Date(data.article.published_at)
-    });
-  }
-  
-  res.status(200).send('OK');
-});
-```
 
 ## Best Practices
 
