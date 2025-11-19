@@ -7,6 +7,8 @@ description: "Connect Genseo to external services using webhooks for advanced au
 
 Webhooks allow you to connect Genseo to external services like Slack, Notion, or custom dashboards. At the moment, Genseo emits exactly one webhook per article—the moment the article is actually published (including scheduled auto-publishes). Use that single payload to trigger downstream automation.
 
+<video controls className="w-full aspect-video rounded-xl" src="https://videos.genseo.co/integrations/Webhook-Integration.mov" />
+
 ## Setting Up Webhooks
 
 ### Step 1: Create the Connection in Genseo
@@ -64,6 +66,7 @@ Genseo signs all webhook payloads with an HMAC-SHA256 signature. Verify the sign
 **Problem**: Webhooks aren't being sent to your endpoint.
 
 **Solution**:
+
 - Verify your webhook URL is correct and accessible
 - Check that your endpoint is returning 200 status codes
 - Review webhook logs in Genseo settings
@@ -74,6 +77,7 @@ Genseo signs all webhook payloads with an HMAC-SHA256 signature. Verify the sign
 **Problem**: Signature verification fails.
 
 **Solution**:
+
 - Verify you're using the correct webhook secret
 - Ensure you're hashing the raw request body (not parsed JSON)
 - Check that you're using HMAC-SHA256
@@ -84,6 +88,7 @@ Genseo signs all webhook payloads with an HMAC-SHA256 signature. Verify the sign
 **Problem**: Receiving duplicate webhook events.
 
 **Solution**:
+
 - Implement idempotency in your webhook handler
 - Use event IDs to track processed events
 - Handle retries gracefully (Genseo may retry failed webhooks)
@@ -93,8 +98,3 @@ Genseo signs all webhook payloads with an HMAC-SHA256 signature. Verify the sign
 - Learn about [article publishing](/articles/publish-articles)
 - Explore [automation workflows](/calendar/auto-publish)
 - Review [API documentation](/api-reference) for advanced integrations
-
-
-
-
-

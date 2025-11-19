@@ -7,6 +7,8 @@ description: "Connect Genseo to Webflow and publish articles directly to your CM
 
 The Webflow integration allows you to publish articles directly to your Webflow CMS collection without manual copy-paste. This guide covers setup, publishing workflows, and troubleshooting.
 
+<video controls className="w-full aspect-video rounded-xl" src="https://videos.genseo.co/integrations/Webflow-Integration.mov" />
+
 ## Connecting Webflow in Genseo
 
 ### Step 1: Start the Connection
@@ -65,7 +67,7 @@ When you update an article in Genseo:
 4. Confirm the update
 
 <Tip>
-Genseo maintains a connection between articles and Webflow items. Updates will overwrite the existing Webflow item.
+  Genseo maintains a connection between articles and Webflow items. Updates will overwrite the existing Webflow item.
 </Tip>
 
 ## Common Issues and Solutions
@@ -75,6 +77,7 @@ Genseo maintains a connection between articles and Webflow items. Updates will o
 **Problem**: The Webflow OAuth window closes with an error or never returns to Genseo.
 
 **Solution**:
+
 - Make sure you selected at least one site in the OAuth dialog
 - Confirm that your Webflow user has access to the project you tried to connect
 - Retry the connection and keep the OAuth pop-up open until it redirects back to Genseo
@@ -84,6 +87,7 @@ Genseo maintains a connection between articles and Webflow items. Updates will o
 **Problem**: Genseo can't find your Webflow site.
 
 **Solution**:
+
 - Verify you have access to the site in your Webflow account
 - Check that the API token has the correct permissions
 - Try disconnecting and reconnecting the integration
@@ -93,6 +97,7 @@ Genseo maintains a connection between articles and Webflow items. Updates will o
 **Problem**: Genseo can't map fields to your CMS collection.
 
 **Solution**:
+
 - Ensure all required fields exist in your CMS collection
 - Check that field types match (e.g., Rich Text for content)
 - Verify field names are spelled correctly
@@ -102,6 +107,7 @@ Genseo maintains a connection between articles and Webflow items. Updates will o
 **Problem**: Articles are in Webflow but not showing on your site.
 
 **Solution**:
+
 - Check that your CMS collection is connected to a Collection Page
 - Verify the article is set to "Published" in Webflow
 - Ensure your Collection Page template is configured correctly
@@ -111,6 +117,7 @@ Genseo maintains a connection between articles and Webflow items. Updates will o
 **Problem**: Multiple articles try to use the same URL slug.
 
 **Solution**:
+
 - Genseo automatically handles slug conflicts by adding numbers
 - Manually edit slugs in Webflow if needed
 - Consider using unique identifiers in your slug pattern
@@ -127,8 +134,3 @@ Genseo maintains a connection between articles and Webflow items. Updates will o
 - Learn about [publishing workflows](/articles/publish-articles)
 - Set up [auto-publishing](/calendar/auto-publish) for hands-off content creation
 - Explore [webhook integrations](/integrations/webhooks) for advanced automation
-
-
-
-
-
