@@ -1,159 +1,139 @@
 ---
 title: "Shopify Integration"
-description: "Connect Genseo to Shopify and publish articles to your store blog"
+description: "Connect Genseo to Shopify and publish articles directly to your store blog"
 ---
 
 ## Overview
 
-The Shopify integration lets you publish articles directly to your Shopify store's blog. This guide covers installation, setup, publishing workflows, and troubleshooting.
+The Shopify integration allows you to publish articles directly to your Shopify store's blog. This guide walks you through setting up the connection step by step.
 
-<video controls className="w-full aspect-video rounded-xl" src="https://videos.genseo.co/integrations/Shopify-Integration.mov" />
+## Setting Up the Shopify App
 
-## Installing the Genseo App
+### Step 1: Log in to Shopify
 
-### Step 1: Install from Shopify App Store
+1. Log in to your Shopify admin panel
 
-1. Log in to your Shopify admin
-2. Go to **Apps** → **App and sales channel settings**
-3. Click **Shopify App Store**
-4. Search for "Genseo"
-5. Click **Add app**
-6. Review permissions and click **Install app**
+### Step 2: Enable App Development
 
-### Step 2: Grant Permissions
+1. Click on **Apps**
+2. Click on **App and sales channel settings**
+3. Click on **Develop apps**
 
-Genseo requires the following permissions:
+### Step 3: Create App in Dev Dashboard
 
-- **Read and write blog posts**: To publish and update articles
-- **Read store information**: To identify your store and blog
+1. Click on **Build apps in Dev Dashboard** (you will be redirected to dev.shopify.com)
+2. Click on **Create app**
+3. Set the app name to **"Genese"**
+4. Change the default app URL from `https://example.com` to `https://app.genseo.co`
+5. Disable **"Embed app in Shopify admin"**
 
-Click **Install** to grant these permissions.
+### Step 4: Configure Permissions
+
+1. Select the following scopes:
+   - **read_content**
+   - **write_content**
+
+### Step 5: Set Redirect URL
+
+1. Set the redirect URL to: `https://app.genseo.co/api/integrations/shopify/callback`
+
+### Step 6: Release the App
+
+1. Click on **Release**
+2. Confirm the release again
+
+### Step 7: Set Up Custom Distribution
+
+1. Click on **Home** in the left sidebar
+2. Click on **Select distribution method** under **Distribution** on the right
+3. Select **Custom distribution**
+4. Enter your store URL (e.g., `MY-STORE-URL.myshopify.com`)
+5. Click on **Generate Link**
+6. Copy the link and open it in a new browser
+7. Select your shop
 
 ## Connecting Shopify in Genseo
 
-### Step 1: Authorize Genseo
+### Step 1: Connect Shopify in Genseo
 
-1. After installing the app, you'll be redirected to Genseo
-2. Click **Connect Shopify** if you haven't already
-3. Authorize the connection
+1. Open Genseo and navigate to the **Integrations** page
+2. Click **Connect** next to Shopify
+3. Enter your shop URL (e.g., `MY-STORE-URL.myshopify.com`)
 
-### Step 2: Select Your Blog
+### Step 2: Copy Client ID and Secret
 
-1. In Genseo, go to **Settings** → **Integrations**
-2. Find your Shopify integration
-3. Select which blog collection you want to publish to
-4. Click **Save**
+1. Go back to dev.shopify.com where you created the app
+2. Select the app
+3. Click on **Settings**
+4. Copy the **Client ID** and **Secret**
+5. Paste both values into Genseo
 
-<Tip>
-  If you have multiple blogs in Shopify, you can connect multiple integrations or switch between them as needed.
-</Tip>
+### Step 3: Save Configuration
 
-## Publishing Articles to Shopify
+1. Click on **Save Configuration**
+2. Click on **Connect** or **Connect**
 
-### Immediate Publishing
+## Blog Configuration
 
-1. Generate or open an article in Genseo
+### Field Mapping
+
+After successful connection:
+
+1. Select your blog under **Blog**
+2. Map the following fields:
+   - **Title** → Title
+   - **Body** → Body
+   - **Thumbnail** → Thumbnail
+   - **Meta Description** → Excerpt (the meta description field must be connected to excerpt)
+   - **Excerpt** → Excerpt
+
+<Warning>
+The keyword field is not supported by Shopify and cannot be mapped.
+</Warning>
+
+### Save Configuration
+
+1. Click on **Save Configuration**
+2. The connection is now successfully set up
+
+## Publishing Articles
+
+After successful setup, you can publish articles directly from Genseo to your Shopify blog:
+
+1. Create or open an article in Genseo
 2. Click **Publish**
 3. Select **Shopify** as the destination
-4. Review the preview
-5. Click **Confirm**
+4. Confirm the publication
 
-The article will be published to your Shopify blog immediately.
+## Common Issues
 
-### Scheduled Publishing
+### Connection Errors
 
-1. Generate or open an article
-2. Click **Schedule**
-3. Select your publish date and time
-4. Choose **Shopify** as the destination
-5. Click **Schedule**
-
-The article will be published automatically at the scheduled time.
-
-## Updating Content
-
-When you update an article in Genseo:
-
-1. Make your edits in the Genseo editor
-2. Click **Update**
-3. Select **Update in Shopify**
-4. Confirm the update
-
-<Tip>
-  Genseo maintains a connection between articles and Shopify blog posts. Updates will overwrite the existing Shopify post.
-</Tip>
-
-## Common Issues and Solutions
-
-### "App Installation Failed" Error
-
-**Problem**: The Genseo app won't install in Shopify.
+**Problem**: Connection to Shopify fails.
 
 **Solution**:
+- Verify that the redirect URL is set correctly
+- Ensure the Client ID and Secret were copied correctly
+- Make sure the app was released in Shopify
 
-- Ensure you have admin access to your Shopify store
-- Check that your Shopify plan supports app installations
-- Try installing from the Genseo dashboard instead
+### Permission Errors
 
-### "Blog Not Found" Error
-
-**Problem**: Genseo can't find your Shopify blog.
-
-**Solution**:
-
-- Verify you have at least one blog created in Shopify
-- Check that the blog is not hidden or deleted
-- Ensure you selected the correct blog in Genseo settings
-
-### "Publish Permission Denied" Error
-
-**Problem**: Genseo can't publish to your Shopify blog.
+**Problem**: Articles cannot be published.
 
 **Solution**:
+- Check that the scopes `read_content` and `write_content` are enabled
+- Ensure the app is installed in your shop
 
-- Verify the Genseo app has write permissions
-- Check your Shopify user permissions
-- Try reinstalling the app with fresh permissions
+### Field Mapping Issues
 
-### Articles Published But Not Visible
-
-**Problem**: Articles are in Shopify but not showing on your storefront.
+**Problem**: Fields cannot be mapped.
 
 **Solution**:
-
-- Check that your blog is enabled in your store theme
-- Verify the article is set to "Visible" in Shopify
-- Ensure your blog template is properly configured in your theme
-
-### Formatting Issues
-
-**Problem**: Article formatting looks wrong in Shopify.
-
-**Solution**:
-
-- Genseo publishes HTML content that should render correctly
-- Check your Shopify theme's blog template styling
-- Review the article in Shopify's editor and adjust if needed
-
-### Image Upload Failures
-
-**Problem**: Featured images aren't uploading to Shopify.
-
-**Solution**:
-
-- Ensure images meet Shopify's file size and format requirements
-- Check your Shopify file storage limits
-- Verify image URLs are accessible
-
-## Best Practices
-
-- **Test first**: Publish a test article before scheduling multiple articles
-- **Review in Shopify**: Always check how articles appear on your storefront
-- **Optimize images**: Compress images before uploading to improve load times
-- **Monitor publishing**: Check your Shopify blog after publishing to ensure articles appear correctly
+- Make sure Meta Description is connected to Excerpt
+- Note that the keyword field is not supported
 
 ## Next Steps
 
 - Learn about [publishing workflows](/articles/publish-articles)
-- Set up [auto-publishing](/calendar/auto-publish) for automated content creation
+- Set up [auto-publishing](/calendar/auto-publish)
 - Explore [webhook integrations](/integrations/webhooks) for advanced automation

@@ -27,6 +27,40 @@ Webhooks allow you to connect Genseo to external services like Slack, Notion, or
 
 When the configuration is saved, Genseo sends a verification request to your endpoint. Your endpoint must respond with the provided challenge token to complete the setup.
 
+## Webhook Payload
+
+Genseo sends webhook events when articles are published. Here's an example payload for the `post.published` event:
+
+```json
+{
+  "event": "post.published",
+  "timestamp": "2025-11-19T19:46:59.878Z",
+  "data": {
+    "id": "test-post-id-123",
+    "title": "Test Blog Post",
+    "content": "This is a test blog post to verify your webhook integration is working correctly.",
+    "keyword": "test keyword",
+    "meta_title": "Test Meta Title",
+    "meta_description": "Test Meta Description",
+    "thumbnail": "https://example.com/test-image.jpg",
+    "published_at": "2025-11-19T19:46:59.878Z"
+  }
+}
+```
+
+### Payload Fields
+
+- **event**: The event type (e.g., `post.published`)
+- **timestamp**: ISO 8601 timestamp of when the event occurred
+- **data.id**: Unique identifier for the published post
+- **data.title**: The article title
+- **data.content**: The full article content (HTML or markdown)
+- **data.keyword**: The target keyword for the article
+- **data.meta_title**: SEO meta title
+- **data.meta_description**: SEO meta description
+- **data.thumbnail**: URL to the article thumbnail image
+- **data.published_at**: ISO 8601 timestamp of when the article was published
+
 ## Authentication
 
 Genseo signs all webhook payloads with an HMAC-SHA256 signature. Verify the signature to ensure the webhook came from Genseo.
