@@ -1,0 +1,246 @@
+---
+title: "Technical SEO Basics"
+description: "Understanding crawlability, indexability, sitemaps, canonicals, and how search engines treat content"
+---
+
+## Overview
+
+Technical SEO ensures search engines can discover, crawl, and index your content effectively. This guide covers the fundamentals: crawlability, indexability, sitemaps, canonicals, noindex rules, and how search engines process content over time.
+
+## What Is Technical SEO?
+
+Technical SEO refers to the technical aspects of your website that affect how search engines crawl, index, and rank your content. Unlike on-page SEO (which focuses on content), technical SEO focuses on the underlying infrastructure.
+
+## Crawlability
+
+Crawlability determines whether search engines can access and read your content.
+
+### What Is Crawling?
+
+Crawling is the process by which search engines discover and read web pages. Search engine bots (like Googlebot) visit your site, follow links, and read your content.
+
+### Ensuring Crawlability
+
+Make sure search engines can crawl your site:
+
+- **Robots.txt**: Properly configure robots.txt to allow crawling
+- **Server accessibility**: Ensure your server is accessible and responsive
+- **No blocking**: Avoid blocking search engines with server-level restrictions
+- **Valid links**: Use valid, accessible links throughout your site
+
+### Common Crawlability Issues
+
+- **Blocked by robots.txt**: Incorrectly configured robots.txt blocks search engines
+- **Server errors**: 500 errors prevent crawling
+- **Slow loading**: Extremely slow pages may not be fully crawled
+- **JavaScript-heavy content**: Content loaded via JavaScript may not be crawled properly
+
+## Indexability
+
+Indexability determines whether search engines add your content to their search index.
+
+### What Is Indexing?
+
+Indexing is the process of storing your content in a search engine's database. Only indexed content can appear in search results.
+
+### Ensuring Indexability
+
+Make sure search engines can index your content:
+
+- **No noindex tags**: Avoid noindex meta tags unless you want to exclude content
+- **Proper HTML structure**: Use valid HTML that search engines can parse
+- **Accessible content**: Ensure content is accessible without requiring login
+- **Unique content**: Provide unique, valuable content that's worth indexing
+
+### Common Indexability Issues
+
+- **Noindex tags**: Accidental noindex tags prevent indexing
+- **Duplicate content**: Duplicate content may not be indexed
+- **Thin content**: Very short or low-quality content may not be indexed
+- **Canonical issues**: Incorrect canonical tags may prevent proper indexing
+
+## Sitemaps
+
+Sitemaps help search engines discover and understand your site structure.
+
+### What Are Sitemaps?
+
+Sitemaps are XML files that list all the pages on your site, helping search engines discover and crawl your content more efficiently.
+
+### Sitemap Benefits
+
+- **Faster discovery**: Help search engines discover new content quickly
+- **Better crawling**: Guide search engines to important pages
+- **Metadata**: Provide metadata about pages (last modified, priority, etc.)
+- **Large sites**: Especially helpful for large sites with many pages
+
+### Creating Sitemaps
+
+Most CMS platforms (like Webflow and Shopify) automatically generate sitemaps. You can also:
+
+1. **Use a sitemap generator**: Use tools to generate sitemaps
+2. **Submit to search engines**: Submit your sitemap to Google Search Console
+3. **Keep updated**: Ensure your sitemap is kept up to date
+4. **Validate**: Validate your sitemap to ensure it's correct
+
+### Sitemap Best Practices
+
+- **Include all important pages**: List all pages you want indexed
+- **Keep updated**: Update your sitemap when you add or remove pages
+- **Submit to search engines**: Submit your sitemap to Google Search Console and Bing Webmaster Tools
+- **Use sitemap index**: For large sites, use a sitemap index to organize multiple sitemaps
+
+## Canonical Tags
+
+Canonical tags tell search engines which version of a page is the preferred version.
+
+### What Are Canonicals?
+
+Canonical tags are HTML elements that specify the preferred URL for duplicate or similar content. They help prevent duplicate content issues.
+
+### When to Use Canonicals
+
+Use canonicals when:
+
+- **Duplicate content**: Multiple URLs show the same content
+- **URL parameters**: Different URL parameters show the same content
+- **HTTP/HTTPS**: Both HTTP and HTTPS versions exist
+- **www/non-www**: Both www and non-www versions exist
+
+### Canonical Tag Syntax
+
+```html
+<link rel="canonical" href="https://example.com/preferred-url">
+```
+
+### Canonical Best Practices
+
+- **Self-referencing**: Each page should have a canonical tag pointing to itself (unless it's a duplicate)
+- **Absolute URLs**: Use absolute URLs (with https://) in canonical tags
+- **One per page**: Include only one canonical tag per page
+- **Consistent**: Ensure canonical tags are consistent across your site
+
+## Noindex Rules
+
+Noindex tags tell search engines not to index a page.
+
+### What Is Noindex?
+
+Noindex is a meta tag that tells search engines not to include a page in their search index. The page can still be crawled but won't appear in search results.
+
+### When to Use Noindex
+
+Use noindex for:
+
+- **Private content**: Content that shouldn't appear in search results
+- **Duplicate content**: Duplicate pages you don't want indexed
+- **Test pages**: Pages used for testing
+- **Admin pages**: Administrative or internal pages
+
+### Noindex Tag Syntax
+
+```html
+<meta name="robots" content="noindex">
+```
+
+Or for specific search engines:
+
+```html
+<meta name="googlebot" content="noindex">
+```
+
+### Noindex Best Practices
+
+- **Use sparingly**: Only use noindex when necessary
+- **Combine with nofollow**: Use nofollow along with noindex if you don't want links followed
+- **Monitor impact**: Monitor how noindex affects your site's visibility
+- **Remove when needed**: Remove noindex tags when content should be indexed
+
+## How Search Engines Treat Content Over Time
+
+Search engines continuously evaluate and re-evaluate your content.
+
+### Initial Crawling and Indexing
+
+When content is first published:
+
+1. **Discovery**: Search engines discover the content (via sitemaps, links, etc.)
+2. **Crawling**: Search engines crawl the content
+3. **Indexing**: Content is added to the search index
+4. **Ranking**: Content begins to rank (initially low, then adjusts based on performance)
+
+### Ongoing Evaluation
+
+Search engines continuously evaluate content:
+
+- **Freshness**: Search engines prefer fresh, updated content
+- **Relevance**: Relevance is re-evaluated as search queries evolve
+- **Quality**: Quality signals are continuously assessed
+- **Performance**: Performance metrics (click-through rate, bounce rate) influence rankings
+
+### Content Updates
+
+When you update content:
+
+- **Re-crawling**: Search engines re-crawl updated pages
+- **Re-indexing**: Updated content is re-indexed
+- **Ranking adjustments**: Rankings may adjust based on updates
+- **Historical signals**: Historical performance signals are considered
+
+### Best Practices for Long-Term SEO
+
+- **Keep content fresh**: Regularly update content to keep it current
+- **Monitor performance**: Track how content performs over time
+- **Update as needed**: Update content when information becomes outdated
+- **Maintain quality**: Ensure content quality remains high over time
+
+## Common Technical SEO Issues
+
+### Crawl Errors
+
+**Problem**: Search engines can't crawl your site.
+
+**Solution**:
+- Check robots.txt configuration
+- Verify server accessibility
+- Fix server errors
+- Ensure links are valid and accessible
+
+### Indexing Issues
+
+**Problem**: Content isn't being indexed.
+
+**Solution**:
+- Remove noindex tags if not needed
+- Check for duplicate content issues
+- Ensure content is unique and valuable
+- Verify canonical tags are correct
+
+### Sitemap Problems
+
+**Problem**: Sitemap isn't working correctly.
+
+**Solution**:
+- Validate your sitemap
+- Ensure all important pages are included
+- Keep sitemap updated
+- Submit sitemap to search engines
+
+## Best Practices
+
+- **Monitor crawlability**: Regularly check that search engines can crawl your site
+- **Ensure indexability**: Verify that important content is being indexed
+- **Maintain sitemaps**: Keep sitemaps updated and submitted to search engines
+- **Use canonicals properly**: Implement canonicals to avoid duplicate content issues
+- **Monitor performance**: Track how technical SEO changes affect your rankings
+- **Stay updated**: Keep up with technical SEO best practices and updates
+
+## Next Steps
+
+- Learn about [on-page SEO](/technical-seo/on-page-seo) to optimize your content
+- Explore [schema markup](/technical-seo/schema-markup) for rich results
+- Review [publishing articles](/articles/publish-articles) to ensure proper technical setup
+
+
+
+

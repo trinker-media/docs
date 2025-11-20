@@ -1,0 +1,329 @@
+---
+title: "Schema Markup"
+description: "JSON-LD examples for BlogPosting and FAQ schema, and how to test with Rich Results Test"
+---
+
+## Overview
+
+Schema markup (structured data) helps search engines understand your content and can enable rich results in search. This guide covers JSON-LD examples for BlogPosting and FAQ schema, and how to test your schema markup.
+
+## What Is Schema Markup?
+
+Schema markup is a form of structured data that provides additional information about your content to search engines. It helps search engines understand what your content is about and can enable rich results (enhanced search listings).
+
+## JSON-LD Format
+
+JSON-LD (JavaScript Object Notation for Linked Data) is the recommended format for schema markup. It's placed in a `<script>` tag in the `<head>` or `<body>` of your HTML.
+
+### JSON-LD Structure
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  ...
+}
+</script>
+```
+
+## BlogPosting Schema
+
+BlogPosting schema helps search engines understand your blog posts and can enable rich results.
+
+### Basic BlogPosting Schema
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Optimize SEO for E-commerce Stores",
+  "description": "Learn how to optimize your e-commerce store for search engines with these SEO best practices.",
+  "image": "https://example.com/images/seo-guide.jpg",
+  "datePublished": "2024-01-15T10:00:00Z",
+  "dateModified": "2024-01-20T14:30:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "John Doe",
+    "url": "https://example.com/author/john-doe"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Genseo",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://example.com/logo.png"
+    }
+  }
+}
+```
+
+### Complete BlogPosting Schema
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Optimize SEO for E-commerce Stores",
+  "description": "Learn how to optimize your e-commerce store for search engines with these SEO best practices.",
+  "image": [
+    "https://example.com/images/seo-guide.jpg",
+    "https://example.com/images/seo-guide-wide.jpg"
+  ],
+  "datePublished": "2024-01-15T10:00:00Z",
+  "dateModified": "2024-01-20T14:30:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "John Doe",
+    "url": "https://example.com/author/john-doe",
+    "image": "https://example.com/author/john-doe.jpg"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Genseo",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://example.com/logo.png",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://example.com/blog/seo-optimization-guide"
+  },
+  "articleSection": "SEO",
+  "keywords": "SEO, e-commerce, optimization, search engine optimization"
+}
+```
+
+### BlogPosting Schema Properties
+
+- **headline**: The title of the blog post
+- **description**: A brief description of the blog post
+- **image**: URL(s) to the featured image(s)
+- **datePublished**: Publication date (ISO 8601 format)
+- **dateModified**: Last modification date (ISO 8601 format)
+- **author**: Author information (Person schema)
+- **publisher**: Publisher information (Organization schema)
+- **mainEntityOfPage**: The main URL of the page
+- **articleSection**: The section or category of the article
+- **keywords**: Relevant keywords (comma-separated)
+
+## FAQ Schema
+
+FAQ schema helps search engines understand your FAQ content and can enable FAQ rich results.
+
+### Basic FAQ Schema
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO (Search Engine Optimization) is the practice of optimizing your website to rank higher in search engine results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does SEO take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO typically takes 3-6 months to show significant results, though this varies based on competition and other factors."
+      }
+    }
+  ]
+}
+```
+
+### Complete FAQ Schema
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO (Search Engine Optimization) is the practice of optimizing your website to rank higher in search engine results. It involves various techniques, including keyword research, on-page optimization, and technical SEO."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does SEO take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO typically takes 3-6 months to show significant results, though this varies based on competition, domain authority, and other factors. Some improvements may be visible sooner, while others may take longer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best SEO practices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Best SEO practices include: conducting keyword research, optimizing title tags and meta descriptions, creating high-quality content, building internal and external links, and ensuring technical SEO is properly implemented."
+      }
+    }
+  ]
+}
+```
+
+### FAQ Schema Properties
+
+- **mainEntity**: Array of Question objects
+- **Question.name**: The question text
+- **Question.acceptedAnswer**: The answer (Answer schema)
+- **Answer.text**: The answer text
+
+## Implementing Schema Markup
+
+### Where to Place Schema
+
+Place schema markup in the `<head>` or `<body>` of your HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>How to Optimize SEO for E-commerce Stores</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Optimize SEO for E-commerce Stores",
+    ...
+  }
+  </script>
+</head>
+<body>
+  ...
+</body>
+</html>
+```
+
+### Dynamic Schema
+
+For dynamically generated content, generate schema markup programmatically:
+
+```javascript
+// Example: Generate BlogPosting schema
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": article.title,
+  "description": article.description,
+  "image": article.image,
+  "datePublished": article.publishedAt,
+  "dateModified": article.updatedAt,
+  "author": {
+    "@type": "Person",
+    "name": article.author.name
+  }
+};
+
+// Output as JSON-LD in HTML
+const schemaScript = `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
+```
+
+## Testing Schema Markup
+
+### Google Rich Results Test
+
+Use Google's Rich Results Test to validate your schema markup:
+
+1. **Go to Rich Results Test**: Visit [search.google.com/test/rich-results](https://search.google.com/test/rich-results)
+2. **Enter URL or code**: Enter your page URL or paste your HTML code
+3. **Test**: Click "Test URL" or "Test Code"
+4. **Review results**: Check for errors, warnings, and valid schema
+5. **Fix issues**: Address any errors or warnings
+
+### Schema.org Validator
+
+Use the Schema.org validator to check your schema:
+
+1. **Go to validator**: Visit [validator.schema.org](https://validator.schema.org)
+2. **Enter URL or code**: Enter your page URL or paste your JSON-LD code
+3. **Validate**: Click "Validate"
+4. **Review results**: Check for errors and warnings
+5. **Fix issues**: Address any errors or warnings
+
+### Common Schema Errors
+
+- **Missing required properties**: Ensure all required properties are included
+- **Invalid date formats**: Use ISO 8601 format for dates
+- **Invalid URLs**: Ensure all URLs are valid and accessible
+- **Invalid JSON**: Ensure JSON is valid and properly formatted
+- **Wrong schema type**: Use the correct schema type for your content
+
+## Best Practices
+
+### Schema Implementation
+
+- **Use JSON-LD**: Prefer JSON-LD format over microdata or RDFa
+- **Place in head or body**: Place schema in `<head>` or `<body>` of your HTML
+- **Validate regularly**: Test your schema markup regularly
+- **Keep updated**: Update schema when content changes
+- **Use correct types**: Use the correct schema types for your content
+
+### Schema Content
+
+- **Accurate information**: Ensure schema data matches your actual content
+- **Complete data**: Include all relevant properties
+- **Valid formats**: Use valid formats for dates, URLs, and other properties
+- **Unique content**: Ensure schema data is unique to each page
+
+### Testing and Monitoring
+
+- **Test before publishing**: Validate schema before publishing
+- **Monitor rich results**: Check if rich results appear in search
+- **Fix errors quickly**: Address schema errors as soon as possible
+- **Stay updated**: Keep up with schema markup updates and best practices
+
+## Common Issues
+
+### Schema Not Showing in Rich Results
+
+**Problem**: Schema is valid but not showing in rich results.
+
+**Solution**:
+- Rich results aren't guaranteed—Google decides when to show them
+- Ensure your content meets quality guidelines
+- Wait for Google to re-crawl and re-index your content
+- Check that your schema matches your actual content
+
+### Schema Errors
+
+**Problem**: Schema validation shows errors.
+
+**Solution**:
+- Fix invalid JSON syntax
+- Include all required properties
+- Use correct data formats (dates, URLs, etc.)
+- Use correct schema types
+
+### Duplicate Schema
+
+**Problem**: Multiple schema blocks on the same page.
+
+**Solution**:
+- Combine related schema into a single JSON-LD block when possible
+- Ensure schema doesn't conflict
+- Use appropriate schema types for each piece of content
+
+## Next Steps
+
+- Learn about [technical SEO basics](/technical-seo/technical-seo-basics) for comprehensive SEO understanding
+- Explore [on-page SEO](/technical-seo/on-page-seo) to optimize your content
+- Review [article publishing](/articles/publish-articles) to ensure schema is included in your content
+
+
+
+
