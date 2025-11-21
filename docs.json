@@ -75,6 +75,11 @@
   "styling": {
     "customCSS": "/styles/globals.css"
   },
+  "integrations": {
+    "fathom": {
+      "siteId": "ESEYHBBA"
+    }
+  },
   "navbar": {
     "links": [
       {
