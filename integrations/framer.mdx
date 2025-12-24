@@ -1,0 +1,101 @@
+---
+title: "Framer"
+description: "Connect Genseo to Framer and sync articles directly to your CMS collection"
+---
+
+## Overview
+
+The Framer integration allows you to sync articles directly to your Framer CMS collection. This guide covers setup and syncing workflows.
+
+<video controls className="w-full aspect-video rounded-xl" src="https://videos.genseo.co/integrations/Framer-Integration.mov" />
+
+## Setting Up the Framer Integration
+
+### Step 1: Install the Genseo Plugin in Framer
+
+1. Open the [Framer Plugin Marketplace](https://www.framer.com/marketplace/plugins/genseo/)
+2. Search for **"Genseo"**
+3. Click **Open Plugin**
+4. Select your project
+
+### Step 2: Create a Collection
+
+1. After opening the plugin, Framer will automatically suggest creating a new collection
+2. Create the collection as suggested
+
+### Step 3: Generate API Key in Genseo
+
+1. Go to your Genseo Dashboard
+2. Navigate to **Integrations**
+3. Click on **Framer**
+4. Click **Generate new API Key**
+5. Copy the generated API key
+
+### Step 4: Connect in Framer
+
+1. Return to the Framer app
+2. Paste the API key you copied from Genseo
+3. Click **Connect**
+
+### Step 5: Sync Articles
+
+After the connection is established:
+
+1. Close the plugin app
+2. In the Framer topbar, click **Sync** to sync your articles
+
+<Warning>
+Framer does not support automatic publishing. You must manually open the collection and click **Sync** in the topbar each time you want to sync articles from Genseo.
+</Warning>
+
+## Syncing Articles
+
+### Manual Sync Process
+
+1. Open your Framer project
+2. Navigate to the collection you connected with Genseo
+3. Click **Sync** in the topbar
+4. Your articles from Genseo will be synced to the collection
+
+## Common Issues and Solutions
+
+### Connection Failed
+
+**Problem**: The API key doesn't work or connection fails.
+
+**Solution**:
+- Verify you copied the entire API key correctly
+- Make sure you generated a new API key in Genseo
+- Try disconnecting and reconnecting the integration
+
+### Articles Not Syncing
+
+**Problem**: Articles don't appear after clicking sync.
+
+**Solution**:
+- Ensure the collection is properly connected in Framer
+- Verify the API key is still valid in Genseo
+- Check that articles are published in Genseo before syncing
+- Try disconnecting and reconnecting the integration
+
+### Collection Not Found
+
+**Problem**: Can't find the collection in Framer.
+
+**Solution**:
+- Make sure you created the collection when setting up the plugin
+- Verify you're looking in the correct Framer project
+- Try creating a new collection and reconnecting
+
+## Best Practices
+
+- **Regular syncing**: Since Framer doesn't support auto-publishing, set a reminder to sync regularly
+- **Test first**: Sync a test article before syncing multiple articles
+- **Monitor syncs**: Check your Framer collection after syncing to ensure articles appear correctly
+
+## Next Steps
+
+- Learn about [publishing workflows](/articles/publish-articles)
+- Explore [webhook integrations](/integrations/webhooks) for advanced automation
+
+
