@@ -2,3 +2,16 @@
   height: 2.15rem !important;
 }
 
+/* Framer Card Icon Replacement */
+a[href="/integrations/framer"] [data-component-part="card-icon"] svg {
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z' fill='%236A39EF'/%3E%3C/svg%3E") !important;
+  background-color: #6A39EF !important;
+  mask-repeat: no-repeat !important;
+  mask-position: center center !important;
+  mask-size: contain !important;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z' fill='%236A39EF'/%3E%3C/svg%3E") !important;
+  -webkit-mask-repeat: no-repeat !important;
+  -webkit-mask-position: center center !important;
+  -webkit-mask-size: contain !important;
+}
+
