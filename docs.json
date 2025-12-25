@@ -23,6 +23,7 @@
         "pages": [
           "integrations/webflow",
           "integrations/shopify",
+          "integrations/framer",
           "integrations/webhooks"
         ]
       },

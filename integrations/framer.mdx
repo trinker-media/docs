@@ -1,0 +1,135 @@
+---
+title: "Framer Integration"
+description: "Connect Genseo to Framer and publish articles directly to your CMS"
+---
+
+## Overview
+
+The Framer integration allows you to publish articles directly to your Framer CMS collection without manual copy-paste. This guide covers setup, publishing workflows, and troubleshooting.
+
+## Connecting Framer in Genseo
+
+### Step 1: Start the Connection
+
+1. In the dashboard sidebar, click **Integrations**
+2. Find **Framer** in the list and click **Connect**
+
+This opens the Framer OAuth pop-up window. If the window is blocked by your browser, allow pop-ups for Genseo.
+
+### Step 2: Authorize Framer
+
+1. Sign in to Framer if you are not already authenticated
+2. Wait a few seconds while Framer loads your projects
+3. Select the Framer site (project) you want to connect
+4. Confirm the requested permissions
+
+You will be redirected back to Genseo once the authorization succeeds.
+
+### Step 3: Pick a Collection and Map Fields
+
+After the redirect, Genseo shows a pop-up with your collections.
+
+1. Choose the CMS collection that should receive newly published items
+2. Map your fields
+3. Click **Save** to persist the mapping
+
+## Publishing Articles to Framer
+
+### Immediate Publishing
+
+1. Generate or open an article in Genseo
+2. Click **Publish**
+3. Select **Framer** as the destination
+4. Review the preview
+5. Click **Confirm**
+
+The article will be published to your Framer CMS immediately.
+
+### Scheduled Publishing
+
+1. Generate or open an article
+2. Click **Schedule**
+3. Select your publish date and time
+4. Choose **Framer** as the destination
+5. Click **Schedule**
+
+The article will be published automatically at the scheduled time.
+
+## Updating Articles
+
+When you update an article in Genseo:
+
+1. Make your edits in the Genseo editor
+2. Click **Update**
+3. Select **Update in Framer**
+4. Confirm the update
+
+<Tip>
+  Genseo maintains a connection between articles and Framer items. Updates will overwrite the existing Framer item.
+</Tip>
+
+## Common Issues and Solutions
+
+### Authorization Failed
+
+**Problem**: The Framer OAuth window closes with an error or never returns to Genseo.
+
+**Solution**:
+
+- Make sure you selected at least one project in the OAuth dialog
+- Confirm that your Framer user has access to the project you tried to connect
+- Retry the connection and keep the OAuth pop-up open until it redirects back to Genseo
+
+### "Project Not Found" Error
+
+**Problem**: Genseo can't find your Framer project.
+
+**Solution**:
+
+- Verify you have access to the project in your Framer account
+- Check that the API token has the correct permissions
+- Try disconnecting and reconnecting the integration
+
+### "CMS Field Mapping Failed" Error
+
+**Problem**: Genseo can't map fields to your CMS collection.
+
+**Solution**:
+
+- Ensure all required fields exist in your CMS collection
+- Check that field types match (e.g., Rich Text for content)
+- Verify field names are spelled correctly
+
+### Articles Published But Not Visible
+
+**Problem**: Articles are in Framer but not showing on your site.
+
+**Solution**:
+
+- Check that your CMS collection is connected to a Collection Page
+- Verify the article is set to "Published" in Framer
+- Ensure your Collection Page template is configured correctly
+
+### Slug Conflicts
+
+**Problem**: Multiple articles try to use the same URL slug.
+
+**Solution**:
+
+- Genseo automatically handles slug conflicts by adding numbers
+- Manually edit slugs in Framer if needed
+- Consider using unique identifiers in your slug pattern
+
+## Best Practices
+
+- **Test first**: Publish a test article before scheduling multiple articles
+- **Backup content**: Keep copies of important articles outside Framer
+- **Monitor publishing**: Check your Framer CMS after publishing to ensure articles appear correctly
+- **Update mappings**: If you change your CMS structure, update field mappings in Genseo
+
+## Next Steps
+
+- Learn about [publishing workflows](/articles/publish-articles)
+- Set up [auto-publishing](/calendar/auto-publish) for hands-off content creation
+- Explore [webhook integrations](/integrations/webhooks) for advanced automation
+
