@@ -1,0 +1,201 @@
+---
+title: "WordPress"
+description: "Connect Genseo to WordPress and publish articles directly to your blog"
+---
+
+## Overview
+
+The WordPress integration allows you to publish articles directly to your WordPress blog without manual copy-paste. This guide covers setup, publishing workflows, and troubleshooting.
+
+<video controls className="w-full aspect-video rounded-xl" src="https://videos.genseo.co/integrations/Wordpress-Integration.mov" />
+
+## Connecting WordPress in Genseo
+
+### Step 1: Access WordPress Profile
+
+1. Open your WordPress admin dashboard
+2. In the sidebar, navigate to **Users** → **Profile**
+
+This will open your user profile page where you can manage your account settings and application passwords.
+
+### Step 2: Copy Username and Website
+
+1. On your profile page, locate the **Username** field
+2. Copy your username
+3. In Genseo, navigate to **Settings** → **Integrations** → **WordPress**
+4. Paste your username into the **Username** field in Genseo
+5. Locate the **Website** field on your WordPress profile page
+6. Copy your website URL
+7. Paste the website URL into the **Website** field in Genseo
+
+<Tip>
+Make sure to copy the full website URL including `https://` or `http://` protocol.
+</Tip>
+
+### Step 3: Create Application Password
+
+WordPress uses application passwords for secure API access. You'll need to create one for Genseo:
+
+1. Scroll down to the **Application Passwords** section on your WordPress profile page
+2. In the **New Application Password Name** field, enter **"Genseo"**
+3. Click **Add New Application Password** or **Generate Password**
+4. WordPress will generate a password for you
+5. **Important**: Copy this password immediately - you won't be able to see it again
+6. Paste the application password into the **Password** field in Genseo
+
+<Warning>
+Application passwords are displayed only once. If you lose the password, you'll need to create a new one. Make sure to copy it before closing the dialog.
+</Warning>
+
+### Step 4: Test Connection
+
+1. In Genseo, click **Test Connection** to verify your credentials
+2. If successful, you'll see a confirmation message
+3. Click **Save** to complete the setup
+
+Your WordPress site is now connected to Genseo and ready to receive articles.
+
+## Publishing Articles to WordPress
+
+### Immediate Publishing
+
+1. Generate or open an article in Genseo
+2. Click **Publish**
+3. Select **WordPress** as the destination
+4. Review the preview
+5. Click **Confirm**
+
+The article will be published to your WordPress blog immediately.
+
+### Scheduled Publishing
+
+1. Generate or open an article
+2. Click **Schedule**
+3. Select your publish date and time
+4. Choose **WordPress** as the destination
+5. Click **Schedule**
+
+The article will be published automatically at the scheduled time.
+
+## Updating Articles
+
+When you update an article in Genseo:
+
+1. Make your edits in the Genseo editor
+2. Click **Update**
+3. Select **Update in WordPress**
+4. Confirm the update
+
+<Tip>
+Genseo maintains a connection between articles and WordPress posts. Updates will overwrite the existing WordPress post, preserving the original publish date.
+</Tip>
+
+## Common Issues and Solutions
+
+### Connection Failed
+
+**Problem**: The connection test fails or you can't connect to WordPress.
+
+**Solution**:
+- Verify your username is correct (case-sensitive)
+- Check that your website URL includes the protocol (`https://` or `http://`)
+- Ensure the application password was copied correctly (no extra spaces)
+- Make sure your WordPress site is accessible and not behind a firewall
+- Verify that Application Passwords are enabled in WordPress (available in WordPress 5.6+)
+
+### "Invalid Credentials" Error
+
+**Problem**: Genseo shows an "Invalid Credentials" error.
+
+**Solution**:
+- Double-check that you copied the application password correctly
+- Create a new application password if you're unsure
+- Verify your username matches exactly (check for typos)
+- Ensure your website URL is correct and accessible
+
+### "Application Passwords Not Available" Error
+
+**Problem**: You don't see the Application Passwords section in WordPress.
+
+**Solution**:
+- Application Passwords require WordPress 5.6 or higher - update WordPress if needed
+- Ensure you're logged in as an Administrator
+- Check if a security plugin is blocking Application Passwords
+- Some managed WordPress hosts may disable Application Passwords - contact your host
+
+### Articles Published But Not Visible
+
+**Problem**: Articles are published but don't appear on your WordPress site.
+
+**Solution**:
+- Check your WordPress post status - ensure posts are set to "Published"
+- Verify your WordPress theme displays blog posts correctly
+- Check if you have any caching plugins that need to be cleared
+- Review your WordPress permalink settings
+- Ensure the post category is set correctly
+
+### Featured Image Not Appearing
+
+**Problem**: Featured images from Genseo don't appear in WordPress.
+
+**Solution**:
+- Verify that your WordPress theme supports featured images
+- Check that the image URL is accessible
+- Ensure your WordPress media library has sufficient space
+- Try uploading the image directly to WordPress media library first
+
+### Slug Conflicts
+
+**Problem**: Multiple articles try to use the same URL slug.
+
+**Solution**:
+- Genseo automatically handles slug conflicts by adding numbers
+- Manually edit slugs in WordPress if needed
+- Consider using unique identifiers in your slug pattern
+- Review your WordPress permalink structure
+
+## Best Practices
+
+### SEO Optimization
+
+- **Meta descriptions**: Ensure your WordPress theme supports meta descriptions or use an SEO plugin
+- **Featured images**: Always include featured images for better social sharing
+- **Categories and tags**: Use relevant categories and tags for better organization
+- **Permalinks**: Configure WordPress permalinks to use post names for SEO-friendly URLs
+
+### Content Management
+
+- **Test first**: Publish a test article before scheduling multiple articles
+- **Backup content**: Keep copies of important articles outside WordPress
+- **Monitor publishing**: Check your WordPress dashboard after publishing to ensure articles appear correctly
+- **Review formatting**: WordPress may render content differently - review published articles
+
+### Performance
+
+- **Image optimization**: Optimize images before publishing to improve site speed
+- **Caching**: Use caching plugins to improve site performance
+- **CDN**: Consider using a CDN for faster image delivery
+
+### Security
+
+- **Application passwords**: Use unique application passwords for each service
+- **Regular updates**: Keep WordPress updated for security patches
+- **Strong passwords**: Use strong passwords for your WordPress admin account
+- **Limit access**: Only grant necessary permissions to application passwords
+
+## Custom Post Types and Taxonomies
+
+If you use custom post types or taxonomies in WordPress:
+
+- Genseo publishes to the default "Posts" post type
+- Custom post types require additional configuration
+- Contact support if you need custom post type support
+- Custom taxonomies can be mapped during the publishing process
+
+## Next Steps
+
+- Learn about [publishing workflows](/articles/publish-articles)
+- Set up [auto-publishing](/calendar/auto-publish) for hands-off content creation
+- Explore [webhook integrations](/integrations/webhooks) for advanced automation
+- Review [technical SEO](/technical-seo/technical-seo-basics) for optimizing your WordPress site
+
