@@ -58,20 +58,7 @@
         "group": "Billing & Support",
         "pages": [
           "billing-support/plans-limits-upgrades",
-          "billing-support/manage-billing-invoices",
-          {
-            "title": "Contact Support",
-            "href": "https://www.genseo.co/support"
-          }
-        ]
-      },
-      {
-        "group": "Need Help?",
-        "pages": [
-          {
-            "title": "Contact Support",
-            "href": "https://www.genseo.co/support"
-          }
+          "billing-support/manage-billing-invoices"
         ]
       }
     ]
