@@ -24,6 +24,7 @@
           "integrations/webflow",
           "integrations/shopify",
           "integrations/wordpress",
+          "integrations/wix",
           "integrations/framer",
           "integrations/webhooks"
         ]
