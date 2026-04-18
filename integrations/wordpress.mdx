@@ -1,202 +1,116 @@
 ---
 title: "WordPress"
-description: "Connect Genseo to WordPress and publish articles directly to your blog"
+description: "Connect Genseo to WordPress with the official plugin and publish articles directly to your blog"
 ---
 
 ## Overview
 
-The WordPress integration allows you to publish articles directly to your WordPress blog without manual copy-paste. This guide covers setup, publishing workflows, and troubleshooting.
+The WordPress integration lets you connect your WordPress site to Genseo using the official Genseo plugin and a Project API Key.
 
-<video controls className="w-full aspect-video rounded-xl" src="https://videos.genseo.co/integrations/Wordpress-Integration.mov" />
+Once connected, you can publish and update articles directly from Genseo.
 
-## Connecting WordPress in Genseo
+<video controls className="w-full aspect-video rounded-xl" src="https://videos.genseo.co/integrations/genseo-integration-wordpress.mp4" />
 
-### Step 1: Access WordPress Profile
+## Before You Start
+
+- You need admin access to your WordPress dashboard
+- You need access to your Genseo account at [app.genseo.co](https://app.genseo.co)
+- You need permission to install and activate WordPress plugins
+
+## Connect WordPress in Genseo
+
+### Step 1: Open WordPress
 
 1. Open your WordPress admin dashboard
-2. In the sidebar, navigate to **Users** → **Profile**
 
-This will open your user profile page where you can manage your account settings and application passwords.
+### Step 2: Install the Genseo Plugin
 
-### Step 2: Copy Username and Website
-
-1. On your profile page, locate the **Username** field
-2. Copy your username
-3. In Genseo, navigate to **Settings** → **Integrations** → **WordPress**
-4. Paste your username into the **Username** field in Genseo
-5. Locate the **Website** field on your WordPress profile page
-6. Copy your website URL
-7. Paste the website URL into the **Website** field in Genseo
+1. In the WordPress sidebar, go to **Plugins** → **Add Plugin**
+2. Search for **Genseo**
+3. On the **Genseo** plugin card, click **Install Now**
+4. Click **Activate**
 
 <Tip>
-Make sure to copy the full website URL including `https://` or `http://` protocol.
+You can also open the plugin directly in the WordPress Plugin Directory: [wordpress.org/plugins/genseo](https://wordpress.org/plugins/genseo)
 </Tip>
 
-### Step 3: Create Application Password
+### Step 3: Open the Genseo Plugin in WordPress
 
-WordPress uses application passwords for secure API access. You'll need to create one for Genseo:
+1. In the WordPress sidebar, click **Genseo**
 
-1. Scroll down to the **Application Passwords** section on your WordPress profile page
-2. In the **New Application Password Name** field, enter **"Genseo"**
-3. Click **Add New Application Password** or **Generate Password**
-4. WordPress will generate a password for you
-5. **Important**: Copy this password immediately - you won't be able to see it again
-6. Paste the application password into the **Password** field in Genseo
+### Step 4: Create an API Key in Genseo App
 
-<Warning>
-Application passwords are displayed only once. If you lose the password, you'll need to create a new one. Make sure to copy it before closing the dialog.
-</Warning>
+1. Open [app.genseo.co](https://app.genseo.co)
+2. Go to **Integrations**
+3. Select **WordPress**
+4. Create a new API Key
 
-### Step 4: Test Connection
+### Step 5: Connect WordPress to Genseo
 
-1. In Genseo, click **Test Connection** to verify your credentials
-2. If successful, you'll see a confirmation message
-3. Click **Save** to complete the setup
+1. Copy the API Key from Genseo
+2. Go back to WordPress → **Genseo**
+3. Paste the key into **Project API Key**
+4. Click **Connect to Genseo**
 
-Your WordPress site is now connected to Genseo and ready to receive articles.
+### Step 6: Verify the Connection
 
-## Publishing Articles to WordPress
+1. Return to [app.genseo.co](https://app.genseo.co)
+2. In **Integrations** → **WordPress**, click **Check connection**
+3. Confirm the success message
 
-### Immediate Publishing
-
-1. Generate or open an article in Genseo
-2. Click **Publish**
-3. Select **WordPress** as the destination
-4. Review the preview
-5. Click **Confirm**
-
-The article will be published to your WordPress blog immediately.
-
-### Scheduled Publishing
-
-1. Generate or open an article
-2. Click **Schedule**
-3. Select your publish date and time
-4. Choose **WordPress** as the destination
-5. Click **Schedule**
-
-The article will be published automatically at the scheduled time.
-
-## Updating Articles
-
-When you update an article in Genseo:
-
-1. Make your edits in the Genseo editor
-2. Click **Update**
-3. Select **Update in WordPress**
-4. Confirm the update
-
-<Tip>
-Genseo maintains a connection between articles and WordPress posts. Updates will overwrite the existing WordPress post, preserving the original publish date.
-</Tip>
+Your WordPress site is now connected and ready for publishing.
 
 ## Common Issues and Solutions
 
-### Connection Failed
+### Genseo Plugin Not Found in WordPress
 
-**Problem**: The connection test fails or you can't connect to WordPress.
-
-**Solution**:
-- Verify your username is correct (case-sensitive)
-- Check that your website URL includes the protocol (`https://` or `http://`)
-- Ensure the application password was copied correctly (no extra spaces)
-- Make sure your WordPress site is accessible and not behind a firewall
-- Verify that Application Passwords are enabled in WordPress (available in WordPress 5.6+)
-
-### "Invalid Credentials" Error
-
-**Problem**: Genseo shows an "Invalid Credentials" error.
+**Problem**: You cannot find the Genseo plugin in **Plugins** → **Add Plugin**.
 
 **Solution**:
-- Double-check that you copied the application password correctly
-- Create a new application password if you're unsure
-- Verify your username matches exactly (check for typos)
-- Ensure your website URL is correct and accessible
+- Confirm you searched for `Genseo` in the plugin search field
+- Check that your WordPress site can access the WordPress Plugin Directory
+- Open the direct plugin page: [wordpress.org/plugins/genseo](https://wordpress.org/plugins/genseo)
+- Make sure your WordPress role has permission to install plugins
 
-### "Application Passwords Not Available" Error
+### Invalid API Key
 
-**Problem**: You don't see the Application Passwords section in WordPress.
-
-**Solution**:
-- Application Passwords require WordPress 5.6 or higher - update WordPress if needed
-- Ensure you're logged in as an Administrator
-- Check if a security plugin is blocking Application Passwords
-- Some managed WordPress hosts may disable Application Passwords - contact your host
-
-### Articles Published But Not Visible
-
-**Problem**: Articles are published but don't appear on your WordPress site.
+**Problem**: Connection fails after pasting the key.
 
 **Solution**:
-- Check your WordPress post status - ensure posts are set to "Published"
-- Verify your WordPress theme displays blog posts correctly
-- Check if you have any caching plugins that need to be cleared
-- Review your WordPress permalink settings
-- Ensure the post category is set correctly
+- Create a new API Key in Genseo and try again
+- Copy and paste the full key without extra spaces
+- Ensure you are using a WordPress key from **Integrations** → **WordPress**
 
-### Featured Image Not Appearing
+### Check Connection Fails
 
-**Problem**: Featured images from Genseo don't appear in WordPress.
+**Problem**: **Check connection** does not pass in Genseo.
 
 **Solution**:
-- Verify that your WordPress theme supports featured images
-- Check that the image URL is accessible
-- Ensure your WordPress media library has sufficient space
-- Try uploading the image directly to WordPress media library first
+- Confirm the plugin is installed and activated in WordPress
+- Re-open WordPress → **Genseo** and click **Connect to Genseo** again
+- Verify the same API Key is active in Genseo
+- Refresh both dashboards and re-run **Check connection**
 
-### Slug Conflicts
+### Missing Permissions in WordPress
 
-**Problem**: Multiple articles try to use the same URL slug.
+**Problem**: You do not see **Plugins** or cannot activate/install plugins.
 
 **Solution**:
-- Genseo automatically handles slug conflicts by adding numbers
-- Manually edit slugs in WordPress if needed
-- Consider using unique identifiers in your slug pattern
-- Review your WordPress permalink structure
+- Ask a WordPress administrator to grant plugin management permissions
+- Complete plugin installation with an admin account
+- Then continue connection in WordPress → **Genseo**
 
 ## Best Practices
 
-### SEO Optimization
-
-- **Meta descriptions**: Ensure your WordPress theme supports meta descriptions or use an SEO plugin
-- **Featured images**: Always include featured images for better social sharing
-- **Categories and tags**: Use relevant categories and tags for better organization
-- **Permalinks**: Configure WordPress permalinks to use post names for SEO-friendly URLs
-
-### Content Management
-
-- **Test first**: Publish a test article before scheduling multiple articles
-- **Backup content**: Keep copies of important articles outside WordPress
-- **Monitor publishing**: Check your WordPress dashboard after publishing to ensure articles appear correctly
-- **Review formatting**: WordPress may render content differently - review published articles
-
-### Performance
-
-- **Image optimization**: Optimize images before publishing to improve site speed
-- **Caching**: Use caching plugins to improve site performance
-- **CDN**: Consider using a CDN for faster image delivery
-
-### Security
-
-- **Application passwords**: Use unique application passwords for each service
-- **Regular updates**: Keep WordPress updated for security patches
-- **Strong passwords**: Use strong passwords for your WordPress admin account
-- **Limit access**: Only grant necessary permissions to application passwords
-
-## Custom Post Types and Taxonomies
-
-If you use custom post types or taxonomies in WordPress:
-
-- Genseo publishes to the default "Posts" post type
-- Custom post types require additional configuration
-- Contact support if you need custom post type support
-- Custom taxonomies can be mapped during the publishing process
+- **Use one key per project**: Keep project environments clearly separated
+- **Rotate keys when needed**: Create a new key immediately if one is exposed
+- **Test before bulk publishing**: Publish one test article after connecting
+- **Verify result in WordPress**: Check formatting, media, and slug after publish
+- **Keep plugin updated**: Install plugin updates for compatibility and stability
 
 ## Next Steps
 
 - Learn about [publishing workflows](/articles/publish-articles)
-- Set up [auto-publishing](/calendar/auto-publish) for hands-off content creation
+- Set up [auto-publishing](/calendar/auto-publish)
 - Explore [webhook integrations](/integrations/webhooks) for advanced automation
-- Review [technical SEO](/technical-seo/technical-seo-basics) for optimizing your WordPress site
-
-
+- Review [technical SEO](/technical-seo/technical-seo-basics)

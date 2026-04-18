@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "Genseo",
   "colors": {
-    "primary": "#000000",
-    "light": "#000000",
-    "dark": "#000000"
+    "primary": "#7447F1",
+    "light": "#7447F1",
+    "dark": "#7447F1"
   },
   "favicon": "/favicon.svg",
   "navigation": {
