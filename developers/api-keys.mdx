@@ -1,0 +1,78 @@
+---
+title: "API Keys"
+description: "Create, copy, store, and revoke project-bound API keys."
+icon: "key"
+---
+
+API keys are created inside the Genseo app and are always bound to one project. A key for one project cannot access another project, even when both projects are in the same workspace.
+
+## Where to find API keys
+
+Open the Genseo app and go to:
+
+```text
+Project → Brand → API / Developer
+```
+
+The page shows the values a developer, CLI, or agent needs:
+
+- **API key**: the secret token used for authentication
+- **Project ID**: the only project this key can access
+- **API base URL**: `https://api.genseo.co/v1`
+
+## Create a key
+
+1. Enter a clear key name, for example `Claude agent`, `Production CLI`, or `Zapier automation`.
+2. Click **Create API key**.
+3. Copy the full secret immediately.
+
+The full secret is shown after creation. Store it in a password manager or secret manager before leaving the page.
+
+## Key format
+
+New keys use the `gs_live_` prefix:
+
+```text
+gs_live_...
+```
+
+The UI may show a shortened version such as:
+
+```text
+gs_live_Vy_kAzgxl4rg***...
+```
+
+Use the copy button to copy the full key when it is available in the app. Do not type keys manually.
+
+## Naming rules
+
+API key names are required. Empty names are rejected.
+
+Names must be unique inside the same project. If a key named `CLI` already exists, create a different name such as `CLI production` or revoke the old key first.
+
+## Delete or revoke a key
+
+Deleting a key revokes it immediately. Any CLI, MCP server, agent, or integration using that key will stop working.
+
+Recommended replacement flow:
+
+1. Create a new key.
+2. Update the client, environment variable, or secret manager.
+3. Test the new key with `GET /me` or `genseo me`.
+4. Delete the old key.
+
+## Safe storage
+
+Do:
+
+- Store keys in a secret manager, `.env` file outside version control, or your MCP client's encrypted environment storage.
+- Use separate keys for production, local development, and each agent when possible.
+- Revoke keys you no longer use.
+
+Do not:
+
+- Commit keys to Git.
+- Put keys in frontend code.
+- Put keys in URLs.
+- Share keys in screenshots or support chats.
+- Log full keys in your own application.

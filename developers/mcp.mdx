@@ -1,0 +1,78 @@
+---
+title: "MCP Server"
+description: "Connect Genseo to MCP clients with project-bound tools."
+icon: "plug"
+---
+
+The Genseo MCP server lets AI tools use Genseo through structured tools instead of raw HTTP calls. It uses the same Public API and the same project-bound API key rules.
+
+An MCP client can only access the project attached to the key you provide.
+
+## Global install
+
+Install the CLI package globally:
+
+```bash
+npm install -g @genseo/cli
+```
+
+Then configure your MCP client:
+
+```json
+{
+  "mcpServers": {
+    "genseo": {
+      "command": "genseo-mcp",
+      "env": {
+        "GENSEO_API_BASE": "https://api.genseo.co/v1",
+        "GENSEO_API_KEY": "gs_live_..."
+      }
+    }
+  }
+}
+```
+
+## Without global install
+
+Use `npx` if you do not want a global package:
+
+```json
+{
+  "mcpServers": {
+    "genseo": {
+      "command": "npx",
+      "args": ["-y", "--package", "@genseo/cli", "genseo-mcp"],
+      "env": {
+        "GENSEO_API_BASE": "https://api.genseo.co/v1",
+        "GENSEO_API_KEY": "gs_live_..."
+      }
+    }
+  }
+}
+```
+
+## Available tools
+
+- `genseo_me`
+- `genseo_project_get`
+- `genseo_keywords_list`
+- `genseo_keywords_create`
+- `genseo_keywords_generate`
+- `genseo_keyword_metrics`
+- `genseo_posts_list`
+- `genseo_posts_create_draft`
+- `genseo_posts_get`
+- `genseo_posts_update`
+- `genseo_posts_generate`
+- `genseo_posts_publish`
+- `genseo_integrations_list`
+- `genseo_integration_fields`
+- `genseo_integration_connect_url`
+- `genseo_integration_mapping_save`
+- `genseo_webhooks_list`
+- `genseo_webhooks_create`
+- `genseo_webhooks_delete`
+
+## Agent behavior
+
+MCP clients should call `genseo_me` first, use only the returned project, create drafts before publishing, and ask before publishing unless the user has explicitly enabled autonomous publishing.

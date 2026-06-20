@@ -1,0 +1,232 @@
+---
+title: "Public API"
+description: "Endpoint reference for the project-bound Genseo Public API v1."
+icon: "brackets-curly"
+---
+
+The Public API lets external systems work with one Genseo project through explicit, allowlisted endpoints. It is the same foundation used by the Genseo CLI and MCP server.
+
+## Base URL
+
+```text
+https://api.genseo.co/v1
+```
+
+## Authentication
+
+Send the project-bound API key as a Bearer token:
+
+```bash
+curl https://api.genseo.co/v1/me   -H "Authorization: Bearer gs_live_..."
+```
+
+There is no cookie fallback for the Public API. Browser sessions, admin sessions, and workspace permissions are not used for Public API authentication.
+
+## Project matching
+
+Most endpoints include a `projectId` path parameter. That ID must exactly match the project attached to the API key.
+
+If the key belongs to Project A and a request uses Project B, the API returns `403 project_forbidden`.
+
+## Endpoints
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/me` | Inspect the current key and project |
+| `GET` | `/project` | Get the key's project |
+| `GET` | `/projects/{projectId}` | Get the matching project by ID |
+| `GET` | `/projects/{projectId}/keywords` | List keywords |
+| `POST` | `/projects/{projectId}/keywords` | Add a custom keyword |
+| `POST` | `/projects/{projectId}/keywords/generate` | Generate keyword ideas |
+| `POST` | `/projects/{projectId}/keyword-metrics` | Refresh keyword metrics |
+| `GET` | `/projects/{projectId}/posts` | List posts |
+| `POST` | `/projects/{projectId}/posts` | Create a draft post |
+| `GET` | `/projects/{projectId}/posts/{postId}` | Read one post |
+| `PATCH` | `/projects/{projectId}/posts/{postId}` | Update a post |
+| `POST` | `/projects/{projectId}/posts/{postId}/generate` | Generate post content |
+| `POST` | `/projects/{projectId}/posts/{postId}/publish` | Publish a post |
+| `GET` | `/projects/{projectId}/integrations` | List integration status |
+| `POST` | `/projects/{projectId}/integrations/{provider}/connect-url` | Create an integration connect URL |
+| `GET` | `/projects/{projectId}/integrations/{provider}/fields` | List provider fields |
+| `POST` | `/projects/{projectId}/integrations/{provider}/mapping` | Save provider field mapping |
+| `GET` | `/projects/{projectId}/webhooks` | List webhooks |
+| `POST` | `/projects/{projectId}/webhooks` | Create a webhook |
+| `DELETE` | `/projects/{projectId}/webhooks/{webhookId}` | Delete a webhook |
+
+## Identity
+
+### `GET /me`
+
+Returns key metadata and the bound project.
+
+```bash
+curl https://api.genseo.co/v1/me   -H "Authorization: Bearer gs_live_..."
+```
+
+Example response:
+
+```json
+{
+  "apiKey": {
+    "id": "key_123",
+    "name": "Claude agent",
+    "prefix": "gs_live_abcd",
+    "lastUsedAt": "2026-06-20T12:00:00.000Z"
+  },
+  "project": {
+    "id": "47120f69-be45-4f32-bec9-f226f45748b6",
+    "name": "Example GmbH",
+    "domain": "example.com"
+  }
+}
+```
+
+Agents should call this endpoint before doing anything else.
+
+## Project
+
+### `GET /project`
+
+Returns the project attached to the API key.
+
+### `GET /projects/{projectId}`
+
+Returns the same project when `projectId` exactly matches the key's project.
+
+## Keywords
+
+### `GET /projects/{projectId}/keywords`
+
+Lists keywords for the project.
+
+```bash
+curl https://api.genseo.co/v1/projects/{projectId}/keywords   -H "Authorization: Bearer gs_live_..."
+```
+
+### `POST /projects/{projectId}/keywords`
+
+Adds a custom keyword.
+
+```json
+{
+  "keyword": "seo automation software",
+  "searchVolume": 1200,
+  "keywordDifficulty": 34,
+  "intent": "commercial"
+}
+```
+
+### `POST /projects/{projectId}/keywords/generate`
+
+Starts keyword generation for the project. Generation may return `202 Accepted` when work continues asynchronously.
+
+### `POST /projects/{projectId}/keyword-metrics`
+
+Refreshes metrics for one or more keywords.
+
+```json
+{
+  "keywords": ["seo automation software", "ai seo tool"]
+}
+```
+
+## Posts
+
+### `GET /projects/{projectId}/posts`
+
+Lists posts for the project.
+
+### `POST /projects/{projectId}/posts`
+
+Creates a draft post.
+
+```json
+{
+  "title": "How SEO Automation Works",
+  "keywordId": "keyword_123"
+}
+```
+
+### `GET /projects/{projectId}/posts/{postId}`
+
+Reads one post. The post must belong to the same project as the key.
+
+### `PATCH /projects/{projectId}/posts/{postId}`
+
+Updates allowlisted fields on a post.
+
+```json
+{
+  "title": "Updated title",
+  "status": "draft"
+}
+```
+
+Agents should preserve existing content when patching. Read the post first, then send only intentional changes.
+
+### `POST /projects/{projectId}/posts/{postId}/generate`
+
+Starts or queues content generation for a post.
+
+### `POST /projects/{projectId}/posts/{postId}/publish`
+
+Publishes through the project's configured integration. Agents should ask before publishing unless autonomous publishing is explicitly enabled by the user.
+
+## Integrations
+
+### `GET /projects/{projectId}/integrations`
+
+Lists connected providers and readiness status.
+
+### `POST /projects/{projectId}/integrations/{provider}/connect-url`
+
+Creates a provider connect URL when supported. The user may still need to complete OAuth or provider authorization in the browser.
+
+### `GET /projects/{projectId}/integrations/{provider}/fields`
+
+Lists available provider fields for mapping.
+
+### `POST /projects/{projectId}/integrations/{provider}/mapping`
+
+Saves field mapping.
+
+```json
+{
+  "connectionId": "connection_123",
+  "siteId": "site_123",
+  "collectionId": "collection_123",
+  "fieldMap": {
+    "title": "name",
+    "content": "body"
+  }
+}
+```
+
+## Webhooks
+
+### `GET /projects/{projectId}/webhooks`
+
+Lists webhooks.
+
+### `POST /projects/{projectId}/webhooks`
+
+Creates a webhook endpoint.
+
+```json
+{
+  "targetUrl": "https://example.com/genseo/webhook",
+  "event": "post.published"
+}
+```
+
+### `DELETE /projects/{projectId}/webhooks/{webhookId}`
+
+Deletes a webhook. The webhook must belong to the key's project.
+
+## Pagination
+
+List endpoints support a conservative `limit` parameter where available. Clients should prefer small pages and retry `429` responses with backoff.
+
+## Response safety
+
+Responses are allowlisted. The Public API does not return provider secrets, full API key hashes, internal database fields, billing internals, or workspace-wide data.

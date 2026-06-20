@@ -1,0 +1,54 @@
+---
+title: "Agent Guidelines"
+description: "Operating rules for autonomous and semi-autonomous agents using Genseo."
+icon: "sparkles"
+---
+
+Agents can be powerful Genseo users, but they must operate inside strict project and safety boundaries.
+
+## Required startup behavior
+
+Every agent should call `/me`, `genseo me`, or `genseo_me` first.
+
+Use the response to learn:
+
+- Which project is authorized
+- Which Project ID to use
+- Which domain the project represents
+- Whether the key is valid
+
+Agents must never guess Project IDs. They should only use the project returned by `/me`.
+
+## Project boundaries
+
+Agents must not attempt to access another project, enumerate a workspace, create projects, or inspect usage and billing data. A `403 project_forbidden` response is final and should not be retried.
+
+## Safe writing
+
+When writing data:
+
+- Prefer draft creation before publish actions.
+- Read a post before patching it.
+- Preserve existing user content unless the user clearly asks for replacement.
+- Send only intentional changes in update requests.
+- Do not retry unsafe writes blindly after network failures.
+
+## Publishing
+
+Publishing can affect a live website. Agents should ask the user before calling publish tools unless the user has explicitly enabled autonomous publishing for the current workflow.
+
+## Async behavior
+
+Treat `202 Accepted` as successful queueing. Continue by polling, reading the affected resource later, or telling the user generation is running.
+
+## Retry behavior
+
+- Treat `403` errors as final.
+- Treat `429` errors with exponential backoff.
+- Retry temporary `5xx` errors carefully.
+- Do not retry validation errors without changing the request.
+- Do not retry publish calls blindly.
+
+## Integration readiness
+
+Before publishing, check integrations. If the API returns `integration_not_configured` or `mapping_required`, guide the user to configure the integration or save the missing mapping first.

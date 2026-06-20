@@ -1,0 +1,47 @@
+---
+title: "Developer Platform"
+description: "Use the Genseo Public API, CLI, and MCP server with project-bound access."
+icon: "code"
+---
+
+The Genseo Developer Platform lets external tools, internal automations, CLIs, and AI agents work inside a single Genseo project. It is built around one security rule: every API key belongs to exactly one project, and that key can only read or change data in that project.
+
+Use the developer platform when you want to connect Genseo to your own workflows, let an agent inspect SEO data, create keyword ideas, draft posts, update existing posts, publish through a configured integration, or receive webhook events.
+
+## What is included in v1
+
+- Public API access with project-bound API keys
+- CLI login with browser authorization or a manual API key
+- MCP server support for Claude, Cursor, Codex, and other MCP clients
+- Project inspection for the one project attached to the key
+- Keyword listing, creation, generation, and metrics refresh
+- Post listing, draft creation, reading, updating, generation, and publishing
+- Integration readiness checks, field discovery, connect URLs, and field mapping
+- Webhook listing, creation, and deletion
+
+## What is intentionally not included
+
+- Creating projects from the Public API, CLI, or MCP
+- Listing every project in a workspace
+- Workspace-wide API keys
+- Usage, billing, or internal limit reporting through the Public API
+- Direct database, SQL, Supabase, or internal RPC access
+- Cookie-session fallback authentication
+- Admin impersonation or `viewAs` behavior
+
+## Recommended flow
+
+1. Create an API key in the app under **Brand → API / Developer**.
+2. Copy the Project ID from the same page.
+3. Call `GET /me` first to confirm the key, project, and allowed capabilities.
+4. Use only the project returned by `/me`.
+5. Create drafts before publishing.
+6. Ask the user before publishing unless the user has explicitly enabled autonomous publishing.
+
+## Base URL
+
+```text
+https://api.genseo.co/v1
+```
+
+All v1 endpoints require a Bearer token in the `Authorization` header.

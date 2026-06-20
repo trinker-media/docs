@@ -9,64 +9,86 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "pages": [
+    "tabs": [
       {
-        "group": "Get Started",
-        "pages": [
-          "index",
-          "getting-started/how-it-works",
-          "getting-started/quick-start"
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "index",
+              "getting-started/how-it-works",
+              "getting-started/quick-start"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/webflow",
+              "integrations/shopify",
+              "integrations/wordpress",
+              "integrations/wix",
+              "integrations/framer",
+              "integrations/webhooks"
+            ]
+          },
+          {
+            "group": "Content Creation",
+            "pages": [
+              "keywords/keyword-basics",
+              "keywords/find-keywords",
+              "articles/generate-articles",
+              "articles/edit-articles",
+              "articles/publish-articles"
+            ]
+          },
+          {
+            "group": "Content Planning",
+            "pages": [
+              "keywords/content-planning",
+              "calendar/content-calendar",
+              "calendar/auto-publish"
+            ]
+          },
+          {
+            "group": "SEO Optimization",
+            "pages": [
+              "technical-seo/technical-seo-basics",
+              "technical-seo/on-page-seo",
+              "technical-seo/schema-markup"
+            ]
+          },
+          {
+            "group": "Billing & Support",
+            "pages": [
+              "billing-support/plans-limits-upgrades",
+              "billing-support/manage-billing-invoices"
+            ]
+          }
         ]
       },
       {
-        "group": "Integrations",
-        "pages": [
-          "integrations/webflow",
-          "integrations/shopify",
-          "integrations/wordpress",
-          "integrations/wix",
-          "integrations/framer",
-          "integrations/webhooks"
-        ]
-      },
-      {
-        "group": "Content Creation",
-        "pages": [
-          "keywords/keyword-basics",
-          "keywords/find-keywords",
-          "articles/generate-articles",
-          "articles/edit-articles",
-          "articles/publish-articles"
-        ]
-      },
-      {
-        "group": "Content Planning",
-        "pages": [
-          "keywords/content-planning",
-          "calendar/content-calendar",
-          "calendar/auto-publish"
-        ]
-      },
-      {
-        "group": "SEO Optimization",
-        "pages": [
-          "technical-seo/technical-seo-basics",
-          "technical-seo/on-page-seo",
-          "technical-seo/schema-markup"
-        ]
-      },
-      {
-        "group": "Billing & Support",
-        "pages": [
-          "billing-support/plans-limits-upgrades",
-          "billing-support/manage-billing-invoices"
+        "tab": "Developers",
+        "groups": [
+          {
+            "group": "Developer Platform",
+            "pages": [
+              "developers/overview",
+              "developers/api-keys",
+              "developers/public-api",
+              "developers/cli",
+              "developers/mcp",
+              "developers/agent-guidelines",
+              "developers/errors"
+            ]
+          }
         ]
       }
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
   },
   "styling": {
     "customCSS": "/styles/globals.css"
@@ -91,15 +113,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {

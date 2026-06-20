@@ -1,0 +1,43 @@
+---
+title: "Errors"
+description: "Stable error codes and retry guidance for the Genseo Public API."
+icon: "triangle-alert"
+---
+
+Genseo returns stable error codes so API clients, CLIs, and agents can respond predictably.
+
+## Error response shape
+
+```json
+{
+  "error": {
+    "code": "project_forbidden",
+    "message": "This API key cannot access the requested project."
+  }
+}
+```
+
+## Codes
+
+| Code | Meaning | Retry behavior |
+| --- | --- | --- |
+| `invalid_api_key` | Missing, malformed, or unknown API key | Do not retry without a new key |
+| `key_revoked` | The key was deleted or revoked | Do not retry; create a new key |
+| `key_expired` | The key has expired | Do not retry; create a new key |
+| `insufficient_scope` | The key cannot perform the requested action | Do not retry without changing access |
+| `project_forbidden` | The request targets a different project | Final; do not retry |
+| `resource_not_found` | The resource is missing or belongs to another project | Do not assume it exists elsewhere |
+| `validation_error` | Request body or parameters are invalid | Fix the request before retrying |
+| `rate_limited` | Too many requests | Retry with backoff |
+| `usage_limit_reached` | The project has reached an internal product limit | Wait, upgrade, or ask the user |
+| `generation_already_running` | A generation job is already active | Wait and read the resource later |
+| `integration_not_configured` | Publishing requires a connected provider | Configure an integration first |
+| `mapping_required` | Provider field mapping is missing | Save mapping before retrying |
+
+## Agent recommendations
+
+- Show the stable code to the user when an action fails.
+- Treat authorization and project-boundary errors as final.
+- Back off on rate limits.
+- Never work around a project boundary by trying another ID.
+- For generation conflicts, wait before checking the post or keyword state again.

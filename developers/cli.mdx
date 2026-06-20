@@ -1,0 +1,168 @@
+---
+title: "CLI"
+description: "Install and use the Genseo command-line client."
+icon: "terminal"
+---
+
+The Genseo CLI is distributed as the public npm package `@genseo/cli`. It uses the same project-bound access model as the Public API.
+
+## Install
+
+Install globally when you want the `genseo` command available everywhere:
+
+```bash
+npm install -g @genseo/cli
+```
+
+Or run without a global install:
+
+```bash
+npx -y --package @genseo/cli genseo login
+```
+
+Use `npx` for quick tests, CI jobs, or machines where you do not want a global package. Use global install for everyday local use.
+
+## Login
+
+Browser-based login uses OAuth Device Flow:
+
+```bash
+genseo login
+```
+
+The CLI prints a URL like this:
+
+```text
+https://app.genseo.co/developer/device?user_code=ABCD-1234
+```
+
+Open it, choose the project, and approve access. The CLI stores the returned project-bound key in:
+
+```text
+~/.genseo/config.json
+```
+
+Manual API-key login is also supported:
+
+```bash
+genseo login --api-key gs_live_...
+```
+
+You can also use environment variables:
+
+```bash
+export GENSEO_API_BASE=https://api.genseo.co/v1
+export GENSEO_API_KEY=gs_live_...
+```
+
+## Logout
+
+```bash
+genseo logout
+```
+
+## Identity
+
+```bash
+genseo me
+```
+
+Use this after login to confirm which project the CLI can access.
+
+## Project
+
+```bash
+genseo project get
+```
+
+The CLI intentionally works with one authorized project at a time. It does not list all projects and it does not create projects.
+
+## Keywords
+
+```bash
+genseo keywords list
+```
+
+```bash
+genseo keywords add "seo automation software"
+```
+
+```bash
+genseo keywords add "seo automation software" --volume 1200 --kd 34 --intent commercial
+```
+
+```bash
+genseo keywords generate
+```
+
+```bash
+genseo keywords metrics "seo automation software"
+```
+
+## Posts
+
+```bash
+genseo posts list
+```
+
+```bash
+genseo posts create --title "SEO Automation Workflow"
+```
+
+```bash
+genseo posts create --title "SEO Automation Workflow" --keyword-id keyword_123
+```
+
+```bash
+genseo posts get post_123
+```
+
+```bash
+genseo posts update post_123 --title "Updated title" --status draft
+```
+
+```bash
+genseo posts generate post_123
+```
+
+```bash
+genseo posts publish post_123
+```
+
+Publishing requires a configured integration. Ask the user before publishing unless autonomous publishing is explicitly enabled.
+
+## Integrations
+
+```bash
+genseo integrations list
+```
+
+```bash
+genseo integrations fields webflow
+```
+
+```bash
+genseo integrations connect-url webflow
+```
+
+```bash
+genseo integrations mapping webflow   --connection-id connection_123   --site-id site_123   --collection-id collection_123   --field-map-json '{"title":"name","content":"body"}'
+```
+
+## Webhooks
+
+```bash
+genseo webhooks list
+```
+
+```bash
+genseo webhooks create --target-url https://example.com/hook --event post.published
+```
+
+```bash
+genseo webhooks delete webhook_123
+```
+
+## Output
+
+Most commands return JSON. Async generation commands may return accepted responses while work continues in Genseo.
